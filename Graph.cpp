@@ -20,6 +20,11 @@ Edge::Edge(int weight, Node* from, Node* to) {
 	this->to = to;
 }
 
+Edge::~Edge() {
+	delete from;
+	delete to;
+}
+
 bool Node::operator==(const Node& other) const {
 	return name == other.name;
 }

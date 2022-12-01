@@ -1,6 +1,14 @@
 #pragma once
 #include "Graph.h"
 
+/**
+ * @ClassName DataLoader
+ * @brief 用于加载学校地图的类，后续可更改来添加其他地图信息 
+ * @brief Author: kojikoji 1310402980@qq.com
+ * @brief Date: 2022/11/30 12:14
+ * @brief Version: beta-1.0
+ */
+
 class DataLoader
 {
 public:

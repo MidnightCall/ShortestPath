@@ -8,6 +8,13 @@ using namespace std;
 class Node;
 class Edge;
 
+/**
+ * @ClassName Graph
+ * @brief 核心数据结构，用于表示图的类，包含点集和边集两个字段
+ * @brief Author: kojikoji 1310402980@qq.com
+ * @brief Date: 2022/11/30 12:14
+ * @brief Version: beta-1.0
+ */
 class Graph
 {
 public:
@@ -25,6 +32,14 @@ public:
 	~Graph();
 };
 
+/**
+ * @ClassName Node
+ * @brief 表示图内节点的类，包含点度、入度、出度以及节点名称的字段
+ *		  此外还包含与该点相关联的点和边的集合 
+ * @brief Author: kojikoji 1310402980@qq.com
+ * @brief Date: 2022/11/30 12:14
+ * @brief Version: beta-1.0
+ */
 class Node
 {
 public:
@@ -55,6 +70,14 @@ public:
 	Node(int value, int in, int out, string name);
 };
 
+/**
+ * @ClassName Edge
+ * @brief 用于表示图中边的数据结构，包含边的权重，入点、出点三个字段
+ * @brief Author: kojikoji 1310402980@qq.com
+ * @brief Date: 2022/11/30 12:14
+ * @brief Version: beta-1.0
+ */
+
 class Edge
 {
 public:
@@ -70,4 +93,7 @@ public:
 
 	// 初始化边权重，出点，入点的构造函数
 	Edge(int weight, Node *from, Node *to);
+
+	// 析构函数，回收分配在堆上的from和to对象
+	~Edge();
 };
