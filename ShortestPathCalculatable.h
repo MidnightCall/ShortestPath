@@ -8,6 +8,6 @@ public:
 	 * @param startingPoint Æðµã
 	 * @param terminal ÖÕµã
 	 */
-	virtual int calculateShortestPath(Node startingPoint, Node terminal) = 0;
+	virtual void calculateShortestPath(Node startingPoint, Node terminal) = 0;
 };
 

@@ -21,8 +21,7 @@ Edge::Edge(int weight, Node* from, Node* to) {
 }
 
 Edge::~Edge() {
-	delete from;
-	delete to;
+
 }
 
 bool Node::operator==(const Node& other) const {

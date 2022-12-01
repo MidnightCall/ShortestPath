@@ -2,6 +2,7 @@
 #include <iostream>
 #include <map>
 #include <set>
+#include <stack>
 using namespace std;
 #include "Graph.h"
 #include "ShortestPathCalculatable.h"
@@ -16,6 +17,8 @@ using namespace std;
  * @brief Date: 2022/11/30 12:14
  * @brief Version: beta-1.0
  */
+
+class ShortestPathData;
 
 class Dijkstra : public ShortestPathCalculatable
 {
@@ -39,15 +42,9 @@ public:
      * @param terminal 终点
      * @return 返回最短路径的距离
      */
-    int calculateShortestPath(Node startingPoint, Node terminal);
+    void calculateShortestPath(Node startingPoint, Node terminal);
 
-    /**
-     * @brief 计算给定节点到其他节点的最短路径
-     * @brief 为初版实现，使用的是传统dijkstra算法的实现，效率较低
-     * @param node 给定的节点
-     * @return 返回最短路径的距离
-     */
-    ShortestPathData dijkstra1(Node node);
+    
 
     /**
      * @brief 计算给定节点到其他节点的最短路径
@@ -71,6 +68,14 @@ private:
      */
     void generateGraph();
 
+	/**
+	 * @brief 计算给定节点到其他节点的最短路径
+	 * @brief 为初版实现，使用的是传统dijkstra算法的实现，效率较低
+	 * @param node 给定的节点
+	 * @return 返回最短路径的距离
+	 */
+	ShortestPathData dijkstra1(Node node);
+
     /**
      * @brief 辅助函数，得到当前最小距离表中与起点距离最小且尚未被选择的节点
      * @param distanceMap 记录每个节点与初始节点的目前最小距离的哈希表
@@ -83,16 +88,16 @@ private:
 };
 
 /**
- * @brief 辅助内部类，用于装载使用dijkstra算法求解得到的数据
+ * @brief 辅助类，用于装载使用dijkstra算法求解得到的数据
  */
 class ShortestPathData {
 public:
 	map<Node, int> distanceMap;
-	map<Node, vector<Node>> pathMap;
+	map<Node, Node> pathMap;
 
 	ShortestPathData() {}
 
-	ShortestPathData(map<Node, int> distanceMap, map<Node, vector<Node>> pathMap) {
+	ShortestPathData(map<Node, int> distanceMap, map<Node, Node> pathMap) {
 		this->distanceMap = distanceMap;
 		this->pathMap = pathMap;
 	}
@@ -128,18 +133,18 @@ private:
 
 public:
 	/**
-		* @brief 内部类的构造函数，初始化内部类的字段
-		* @param size 初始化点集数组的大小
-		*/
+	* @brief 内部类的构造函数，初始化内部类的字段
+	* @param size 初始化点集数组的大小
+	*/
 	NodeHeap(int size) {
 		nodes = new Node[size];
 		this->size = 0;
 	}
 
 	/**
-		* @brief 判断点集是否为空
-		* @return 为空，返回1，否则返回0
-		*/
+	* @brief 判断点集是否为空
+	* @return 为空，返回1，否则返回0
+	*/
 	bool isEmpty() {
 		return size == 0;
 	}
@@ -179,7 +184,7 @@ private:
 		while (left < size) {
 			int smallest = left + 1 < size &&
 				distanceMap.find(nodes[left + 1])->second < distanceMap.find(nodes[left])->second ? left + 1 : left;
-			smallest = distanceMap.find(nodes[smallest])->second < distanceMap.find(nodes[index]) > smallest : index;
+			smallest = distanceMap.find(nodes[smallest])->second < distanceMap.find(nodes[index])->second ? smallest : index;
 			if (smallest == index) {
 				break;
 			}

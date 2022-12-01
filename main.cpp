@@ -4,10 +4,7 @@ using namespace std;
 
 void test1() {
 	Dijkstra d;
-	map<Node, int> shortestMap = d.dijkstra1(d.getNode("A"));
-	for (map<Node, int>::iterator iter = shortestMap.begin(); iter != shortestMap.end(); ++iter) {
-		cout << iter->first.name << " " << iter->second << endl;
-	}
+	d.calculateShortestPath(d.getNode("D"), d.getNode("B"));
 }
 
 int main(void){
