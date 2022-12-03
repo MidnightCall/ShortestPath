@@ -11,6 +11,7 @@ public:
 		test.calculateShortestPath(test.getNode("D"), test.getNode("B"));
 	}
 
+	// pass
 	void testDijkstra2() {
 		test.calculateShortestPath(test.getNode("D"), test.getNode("B"));
 	}

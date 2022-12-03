@@ -12,7 +12,7 @@ class Edge;
  * @ClassName Graph
  * @brief 核心数据结构，用于表示图的类，包含点集和边集两个字段
  * @brief Author: kojikoji 1310402980@qq.com
- * @brief Date: 2022/11/30 12:14
+ * @brief Date: 2022/11/30 12:30
  * @brief Version: beta-1.0
  */
 class Graph
@@ -37,7 +37,7 @@ public:
  * @brief 表示图内节点的类，包含点度、入度、出度以及节点名称的字段
  *		  此外还包含与该点相关联的点和边的集合 
  * @brief Author: kojikoji 1310402980@qq.com
- * @brief Date: 2022/11/30 12:14
+ * @brief Date: 2022/11/30 12:35
  * @brief Version: beta-1.0
  */
 class Node
@@ -51,13 +51,11 @@ public:
 	vector<Node> nexts; // 相关联的点的集合
 	vector<Edge> edges; // 相关联的边的集合
 
-	// 重载==运算符
+	// 运算符重载
 	bool operator==(const Node& other) const;
 
-	// 重载!=运算符
 	bool operator!=(const Node& other) const;
 
-	// 重载<运算符
 	bool operator<(const Node& other) const;
 
 	// 默认构造函数
@@ -74,7 +72,7 @@ public:
  * @ClassName Edge
  * @brief 用于表示图中边的数据结构，包含边的权重，入点、出点三个字段
  * @brief Author: kojikoji 1310402980@qq.com
- * @brief Date: 2022/11/30 12:14
+ * @brief Date: 2022/11/30 13:37
  * @brief Version: beta-1.0
  */
 
