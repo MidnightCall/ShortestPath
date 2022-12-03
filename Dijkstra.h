@@ -53,7 +53,7 @@ public:
      * @param size 节点的规模
      * @return 返回最短路径的距离
      */
-    map<Node, int> dijkstra2(Node node, int size);
+    ShortestPathData dijkstra2(Node node, int size);
 
     /**
      * @brief 通过节点名称在图内查询对应节点
@@ -155,15 +155,21 @@ public:
 		return size == 0;
 	}
 
-	void addOrUpdateOrIgnore(Node node, int distance) {
+	void addOrUpdateOrIgnore(Node node, Node prevNode, int distance, map<Node, Node> &pathMap) {
 		if (inHeap(node)) {
-			distanceMap.find(node)->second = min(distanceMap.find(node)->second, distance);
+			int curr = distance;
+			int prev = distanceMap.find(node)->second;
+			if (curr < prev) {
+				distanceMap.find(node)->second = curr;
+				pathMap.find(node)->second = prevNode;
+			}
 			insertHeapify(node, heapIndexMap.find(node)->second);
 		}
 		if (!isEntered(node)) {
 			nodes[size] = node;
 			heapIndexMap.insert(make_pair(node, size));
 			distanceMap.insert(make_pair(node, distance));
+			pathMap.insert(make_pair(node, prevNode));
 			insertHeapify(node, size++);
 		}
 	}

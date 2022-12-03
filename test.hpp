@@ -12,10 +12,7 @@ public:
 	}
 
 	void testDijkstra2() {
-		map<Node, int> lengthMap = test.dijkstra2(test.getNode("A"), 5);
-		for (map<Node, int>::iterator iter = lengthMap.begin(); iter != lengthMap.end(); ++iter) {
-			cout << iter->first.name << " " << iter->second << endl;
-		}
+		test.calculateShortestPath(test.getNode("D"), test.getNode("B"));
 	}
 };
 

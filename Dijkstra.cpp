@@ -11,7 +11,7 @@ Dijkstra::~Dijkstra() {
 
 //-------------------public function implementation-----------------------------
 void Dijkstra::calculateShortestPath(Node startingPoint, Node terminal) {
-	ShortestPathData data = dijkstra1(startingPoint);
+	ShortestPathData data = dijkstra2(startingPoint, 5);
 	stack<Node> path; // 最短路径
 	int shortestLength; // 最短路径长度
 	path.push(terminal);
@@ -88,20 +88,23 @@ ShortestPathData Dijkstra::dijkstra1(Node node) {
 	return data;
 }
 
-map<Node, int> Dijkstra::dijkstra2(Node node, int size) {
+ShortestPathData Dijkstra::dijkstra2(Node node, int size) {
 	NodeHeap nodeHeap(size);
-	nodeHeap.addOrUpdateOrIgnore(node, 0);
-	map<Node, int> result;
+	map<Node, int> distanceMap; // 记录指定节点到其他各节点的当前最短距离
+	map<Node, Node> pathMap; // 记录每个节点最短路径的前驱节点
+	pathMap.insert(make_pair(node, NULLNODE));
+	nodeHeap.addOrUpdateOrIgnore(node, NULLNODE, 0, pathMap);
 	while (!nodeHeap.isEmpty()) {
 		NodeRecord record = nodeHeap.pop();
 		Node curr = record.node;
 		int distance = record.distance;
 		for (vector<Edge>::iterator iter = curr.edges.begin(); iter != curr.edges.end(); ++iter) {
-			nodeHeap.addOrUpdateOrIgnore(*(iter->to), iter->weight + distance);
+			nodeHeap.addOrUpdateOrIgnore(*(iter->to), curr, iter->weight + distance, pathMap);
 		}
-		result.insert(make_pair(curr, distance));
+		distanceMap.insert(make_pair(curr, distance));
 	}
-	return result;
+	ShortestPathData data(distanceMap, pathMap);
+	return data;
 }
 
 Node Dijkstra::getMinDistanceAndUnselectedNode(map<Node, int> distanceMap,
