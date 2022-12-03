@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 #include "Dijkstra.h"
+#include "test.hpp"
 
 void test1() {
-	Dijkstra d;
-	d.calculateShortestPath(d.getNode("D"), d.getNode("B"));
+	Test test;
+	test.testDijkstra2();
 }
 
 int main(void){
@@ -13,3 +14,4 @@ int main(void){
 	system("pause");
 	return 0;
 }
+ 

@@ -122,7 +122,13 @@ public:
 };
 
 /**
- * @brief 辅助内部类，通过改写堆来对Dijkstra算法进行优化
+ * @brief 辅助类，通过改写堆来对Dijkstra算法进行优化
+ * @brief 核心思想是将记录节点路径长度的表用堆来存储
+ * @brief 但存在问题是当一个处理一个节点时，其关联的
+ * @brief 边连接的点对应的最短数据都会动态改变，若使
+ * @brief 用系统提供的堆采取的是全局扫描的方式，效率
+ * @brief 和直接查找相差不大，从而此处采取改写堆的方
+ * @brief 来优化
  */
 class NodeHeap {
 private:
@@ -152,6 +158,7 @@ public:
 	void addOrUpdateOrIgnore(Node node, int distance) {
 		if (inHeap(node)) {
 			distanceMap.find(node)->second = min(distanceMap.find(node)->second, distance);
+			insertHeapify(node, heapIndexMap.find(node)->second);
 		}
 		if (!isEntered(node)) {
 			nodes[size] = node;
@@ -165,7 +172,7 @@ public:
 		NodeRecord nodeRecord(nodes[0], distanceMap.find(nodes[0])->second);
 		swap(0, size - 1);
 		heapIndexMap.find(nodes[size - 1])->second = -1;
-		distanceMap.erase(distanceMap.find(nodes[size - 1]));
+		distanceMap.erase(nodes[size - 1]);
 		nodes[size - 1] = NULLNODE;
 		heapify(0, --size);
 		return nodeRecord;
@@ -174,8 +181,8 @@ public:
 private:
 	void insertHeapify(Node node, int index) {
 		while (distanceMap.find(nodes[index])->second < distanceMap.find(nodes[(index - 1) / 2])->second) {
-			swap(index, (index - 1) >> 1);
-			index = (index - 1) >> 1;
+			swap(index, (index - 1) / 2);
+			index = (index - 1) / 2;
 		}
 	}
 
@@ -190,12 +197,12 @@ private:
 			}
 			swap(smallest, index);
 			index = smallest;
-			left = index * 2 + 1;
+			left = index << 2 + 1;
 		}
 	}
 
 	bool isEntered(Node node) {
-		return heapIndexMap.find(node) == heapIndexMap.end();
+		return heapIndexMap.find(node) != heapIndexMap.end();
 	}
 
 	bool inHeap(Node node) {

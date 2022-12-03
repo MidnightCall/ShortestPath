@@ -50,7 +50,6 @@ Node Dijkstra::getNode(string name) {
 	return Node(0, "NULL");
 }
 
-
 //-------------------private function implementation-----------------------------
 void Dijkstra::generateGraph(){
 	DataLoader loader;
@@ -89,8 +88,20 @@ ShortestPathData Dijkstra::dijkstra1(Node node) {
 	return data;
 }
 
-map<Node, int> dijkstra2(Node node, int size) {
-	return map<Node, int>();
+map<Node, int> Dijkstra::dijkstra2(Node node, int size) {
+	NodeHeap nodeHeap(size);
+	nodeHeap.addOrUpdateOrIgnore(node, 0);
+	map<Node, int> result;
+	while (!nodeHeap.isEmpty()) {
+		NodeRecord record = nodeHeap.pop();
+		Node curr = record.node;
+		int distance = record.distance;
+		for (vector<Edge>::iterator iter = curr.edges.begin(); iter != curr.edges.end(); ++iter) {
+			nodeHeap.addOrUpdateOrIgnore(*(iter->to), iter->weight + distance);
+		}
+		result.insert(make_pair(curr, distance));
+	}
+	return result;
 }
 
 Node Dijkstra::getMinDistanceAndUnselectedNode(map<Node, int> distanceMap,
