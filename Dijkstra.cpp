@@ -53,7 +53,8 @@ Node Dijkstra::getNode(string name) {
 //-------------------private function implementation-----------------------------
 void Dijkstra::generateGraph(){
 	DataLoader loader;
-	schoolGraph = loader.loadData();
+	// schoolGraph = loader.loadData();
+	schoolGraph = loader.loadTestData();
 }
 
 ShortestPathData Dijkstra::dijkstra1(Node node) {
