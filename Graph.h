@@ -25,11 +25,6 @@ public:
 	 * @brief 空参构造器
 	 */
 	Graph();
-
-	/**
-	 * @brief 析构函数
-	 */
-	~Graph();
 };
 
 /**
@@ -43,12 +38,8 @@ public:
 class Node
 {
 public:
-	int value; // 点度
-	int in; // 入度
-	int out; // 出度
 	string name; // 对应的地点名称
 
-	vector<Node> nexts; // 相关联的点的集合
 	vector<Edge> edges; // 相关联的边的集合
 
 	// 运算符重载
@@ -61,11 +52,9 @@ public:
 	// 默认构造函数
 	Node();
 
-	// 初始化点度构造器
-	Node(int value, string name);
+	// 初始化名称构造器
+	Node(string name);
 
-	// 初始化点度、入度、出度构造器
-	Node(int value, int in, int out, string name);
 };
 
 /**
@@ -92,6 +81,4 @@ public:
 	// 初始化边权重，出点，入点的构造函数
 	Edge(int weight, Node *from, Node *to);
 
-	// 析构函数，回收分配在堆上的from和to对象
-	~Edge();
 };

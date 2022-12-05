@@ -48,27 +48,12 @@ Graph DataLoader::loadData() {
 	// 数据初始化
 	Graph graph;
 	// 初始化点集
-	Node* A = new Node(3, "A");
-	Node* B = new Node(3, "B");
-	Node* C = new Node(3, "C");
-	Node* D = new Node(3, "D");
-	Node* E = new Node(4, "E");
-	(*A).nexts.push_back(*B);
-	(*A).nexts.push_back(*E);
-	(*A).nexts.push_back(*D);
-	(*B).nexts.push_back(*A);
-	(*B).nexts.push_back(*E);
-	(*B).nexts.push_back(*C);
-	(*C).nexts.push_back(*E);
-	(*C).nexts.push_back(*D);
-	(*C).nexts.push_back(*B);
-	(*D).nexts.push_back(*A);
-	(*D).nexts.push_back(*E);
-	(*D).nexts.push_back(*C);
-	(*E).nexts.push_back(*A);
-	(*E).nexts.push_back(*B);
-	(*E).nexts.push_back(*C);
-	(*E).nexts.push_back(*D);
+	Node* A = new Node("A");
+	Node* B = new Node("B");
+	Node* C = new Node("C");
+	Node* D = new Node("D");
+	Node* E = new Node("E");
+	
 	// 初始化边集
 	Edge AB(1, A, B);
 	Edge BA(1, B, A);
@@ -109,6 +94,7 @@ Graph DataLoader::loadData() {
 	graph.nodes.insert(make_pair(3, *C));
 	graph.nodes.insert(make_pair(4, *D));
 	graph.nodes.insert(make_pair(5, *E));
+	
 	// 添加边集
 	graph.edges.insert(AB);
 	graph.edges.insert(BA);

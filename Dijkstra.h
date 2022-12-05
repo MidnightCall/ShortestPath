@@ -8,7 +8,7 @@ using namespace std;
 #include "ShortestPathCalculatable.h"
 #include "DataLoader.h"
 
-#define NULLNODE Node(0, "NULL")
+#define NULLNODE Node("NULL")
 
 /**
  * @ClassName Dijkstra

@@ -13,7 +13,15 @@ public:
 
 	// pass
 	void testDijkstra2() {
-		test.calculateShortestPath(test.getNode("D"), test.getNode("B"));
+		string start;
+		string end;
+		cout << "请输入起点:" << endl;
+		cin >> start;
+
+		cout << "请输入终点:" << endl;
+		cin >> end;
+
+		test.calculateShortestPath(test.getNode(start), test.getNode(end));
 	}
 };
 

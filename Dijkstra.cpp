@@ -47,7 +47,7 @@ Node Dijkstra::getNode(string name) {
 			return iter->second;
 		}
 	}
-	return Node(0, "NULL");
+	return Node("NULL");
 }
 
 //-------------------private function implementation-----------------------------
@@ -109,7 +109,7 @@ ShortestPathData Dijkstra::dijkstra2(Node node, int size) {
 
 Node Dijkstra::getMinDistanceAndUnselectedNode(map<Node, int> distanceMap,
 	set<Node> touchedNodes){
-	Node minNode(0, "NULL");
+	Node minNode("NULL");
 	int minDistance = INT_MAX;
 	for (map<Node, int>::iterator iter = distanceMap.begin(); iter != distanceMap.end(); ++iter) {
 		Node node = iter->first;
