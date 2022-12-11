@@ -1,4 +1,4 @@
-#include "Dijkstra.h"
+ï»¿#include "Dijkstra.h"
 
 //-----------------------constuctor implementation------------------------------
 Dijkstra::Dijkstra() {
@@ -11,22 +11,22 @@ Dijkstra::~Dijkstra() {
 
 //-------------------public function implementation-----------------------------
 void Dijkstra::calculateShortestPath(Node startingPoint, Node terminal) {
-	ShortestPathData data = dijkstra2(startingPoint, 5);
-	stack<Node> path; // ×î¶ÌÂ·¾¶
-	int shortestLength; // ×î¶ÌÂ·¾¶³¤¶È
+	ShortestPathData data = dijkstra2(startingPoint, 20);
+	stack<Node> path; // æœ€çŸ­è·¯å¾„
+	int shortestLength; // æœ€çŸ­è·¯å¾„é•¿åº¦
 	path.push(terminal);
 	
-	// ¼ÇÂ¼×î¶ÌÂ·¾¶³¤¶È
+	// è®°å½•æœ€çŸ­è·¯å¾„é•¿åº¦
 	shortestLength = data.distanceMap.find(terminal)->second;
 
-	// ÏòÇ°²éÕÒ×î¶ÌÂ·¾¶
+	// å‘å‰æŸ¥æ‰¾æœ€çŸ­è·¯å¾„
 	Node prevNode = data.pathMap.find(terminal)->second;
 	while (prevNode != NULLNODE) {
 		path.push(prevNode);
 		prevNode = data.pathMap.find(prevNode)->second;
 	}
 
-	cout << "×î¶ÌÂ·¾¶Îª:";
+	cout << "æœ€çŸ­è·¯å¾„ä¸º:";
 	while (!path.empty()) {
 		Node currNode = path.top();
 		cout << currNode.name;
@@ -37,7 +37,7 @@ void Dijkstra::calculateShortestPath(Node startingPoint, Node terminal) {
 	}
 	cout << endl;
 
-	cout << "´ËÂ·¾¶³¤¶ÈÎª:" << shortestLength << endl;
+	cout << "æ­¤è·¯å¾„é•¿åº¦ä¸º:" << shortestLength << endl;
 }
 
 Node Dijkstra::getNode(string name) {
@@ -47,52 +47,52 @@ Node Dijkstra::getNode(string name) {
 			return iter->second;
 		}
 	}
-	return Node("NULL");
+	return NULLNODE;
 }
 
 //-------------------private function implementation-----------------------------
 void Dijkstra::generateGraph(){
 	DataLoader loader;
-	// schoolGraph = loader.loadData();
-	schoolGraph = loader.loadTestData();
+	schoolGraph = loader.loadData();
+	// schoolGraph = loader.loadTestData();
 }
 
 ShortestPathData Dijkstra::dijkstra1(Node node) {
-	map<Node, int> distanceMap; // ¼ÇÂ¼Ö¸¶¨½Úµãµ½ÆäËû¸÷½ÚµãµÄµ±Ç°×î¶Ì¾àÀë
-	map<Node, Node> pathMap; // ¼ÇÂ¼Ã¿¸ö½Úµã×î¶ÌÂ·¾¶µÄÇ°Çı½Úµã
-	distanceMap.insert(make_pair(node, 0)); // ½«µ±Ç°½ÚµãÓë×ÔÉí¾àÀë³õÊ¼»¯Îª0
-	set<Node> selectedNodes; // ¼ÇÂ¼ÒÑ¾­¼ÆËã³ö×îĞ¡Â·¾¶µÄ½Úµã
+	map<Node, int> distanceMap; // è®°å½•æŒ‡å®šèŠ‚ç‚¹åˆ°å…¶ä»–å„èŠ‚ç‚¹çš„å½“å‰æœ€çŸ­è·ç¦»
+	map<Node, Node> pathMap; // è®°å½•æ¯ä¸ªèŠ‚ç‚¹æœ€çŸ­è·¯å¾„çš„å‰é©±èŠ‚ç‚¹
+	distanceMap.insert(make_pair(node, 0)); // å°†å½“å‰èŠ‚ç‚¹ä¸è‡ªèº«è·ç¦»åˆå§‹åŒ–ä¸º0
+	set<Node> selectedNodes; // è®°å½•å·²ç»è®¡ç®—å‡ºæœ€å°è·¯å¾„çš„èŠ‚ç‚¹
 
 	Node minNode = getMinDistanceAndUnselectedNode(distanceMap, selectedNodes);
 	pathMap.insert(make_pair(minNode, NULLNODE));
 	while (minNode != NULLNODE) {
 		int distance = distanceMap.find(minNode)->second;
 		for (vector<Edge>::iterator iter = minNode.edges.begin(); iter != minNode.edges.end(); iter++) { 
-			// ±éÀúµ±Ç°Â·¾¶×î¶Ì½ÚµãµÄ³ö±ß£¬²¢¸üĞÂ×î¶ÌÂ·¾¶±í
+			// éå†å½“å‰è·¯å¾„æœ€çŸ­èŠ‚ç‚¹çš„å‡ºè¾¹ï¼Œå¹¶æ›´æ–°æœ€çŸ­è·¯å¾„è¡¨
 			Node* toNode = iter->to;
-			if (distanceMap.find(*toNode) == distanceMap.end()) { // ²»´æÔÚµÄ½ÚµãÔòÌí¼Ó
-				distanceMap.insert(make_pair(*toNode, distance + iter->weight));// Ìí¼Óµ½×î¶Ì¾àÀë±íÖĞ
-				pathMap.insert(make_pair(*toNode, minNode)); // ¸üĞÂÇ°Çı½Úµã
+			if (distanceMap.find(*toNode) == distanceMap.end()) { // ä¸å­˜åœ¨çš„èŠ‚ç‚¹åˆ™æ·»åŠ 
+				distanceMap.insert(make_pair(*toNode, distance + iter->weight));// æ·»åŠ åˆ°æœ€çŸ­è·ç¦»è¡¨ä¸­
+				pathMap.insert(make_pair(*toNode, minNode)); // æ›´æ–°å‰é©±èŠ‚ç‚¹
 			}
-			// ÈôÓĞ¿ÉÌæ»»µÄ×î¶ÌÂ·¾¶ÔòÌæ»»
+			// è‹¥æœ‰å¯æ›¿æ¢çš„æœ€çŸ­è·¯å¾„åˆ™æ›¿æ¢
 			int currLength = distance + iter->weight;
 			int prevLength = distanceMap.find(*toNode)->second;
 			if (currLength < prevLength) {
-				distanceMap.find(*toNode)->second = currLength; // ¸üĞÂÂ·¾¶³¤¶È
-				pathMap.find(*toNode)->second = minNode; // ¸üĞÂÇ°ÇıÂ·¾¶
+				distanceMap.find(*toNode)->second = currLength; // æ›´æ–°è·¯å¾„é•¿åº¦
+				pathMap.find(*toNode)->second = minNode; // æ›´æ–°å‰é©±è·¯å¾„
 			}
 		}
-		selectedNodes.insert(minNode);// ´¦ÀíÍê±ÏµÄµ±Ç°½Úµã¼ÓÈëÒÑÑ¡Ôñ½ÚµãµÄ±íÖĞ
+		selectedNodes.insert(minNode);// å¤„ç†å®Œæ¯•çš„å½“å‰èŠ‚ç‚¹åŠ å…¥å·²é€‰æ‹©èŠ‚ç‚¹çš„è¡¨ä¸­
 		minNode = getMinDistanceAndUnselectedNode(distanceMap, selectedNodes); 
 	}
-	ShortestPathData data(distanceMap, pathMap); // ·µ»ØÊı¾İ´ò°ü
+	ShortestPathData data(distanceMap, pathMap); // è¿”å›æ•°æ®æ‰“åŒ…
 	return data;
 }
 
 ShortestPathData Dijkstra::dijkstra2(Node node, int size) {
 	NodeHeap nodeHeap(size);
-	map<Node, int> distanceMap; // ¼ÇÂ¼Ö¸¶¨½Úµãµ½ÆäËû¸÷½ÚµãµÄµ±Ç°×î¶Ì¾àÀë
-	map<Node, Node> pathMap; // ¼ÇÂ¼Ã¿¸ö½Úµã×î¶ÌÂ·¾¶µÄÇ°Çı½Úµã
+	map<Node, int> distanceMap; // è®°å½•æŒ‡å®šèŠ‚ç‚¹åˆ°å…¶ä»–å„èŠ‚ç‚¹çš„å½“å‰æœ€çŸ­è·ç¦»
+	map<Node, Node> pathMap; // è®°å½•æ¯ä¸ªèŠ‚ç‚¹æœ€çŸ­è·¯å¾„çš„å‰é©±èŠ‚ç‚¹
 	pathMap.insert(make_pair(node, NULLNODE));
 	nodeHeap.addOrUpdateOrIgnore(node, NULLNODE, 0, pathMap);
 	while (!nodeHeap.isEmpty()) {

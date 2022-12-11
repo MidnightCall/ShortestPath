@@ -1,0 +1,88 @@
+\hypertarget{class_dijkstra}{}\doxysection{Dijkstra Class Reference}
+\label{class_dijkstra}\index{Dijkstra@{Dijkstra}}
+
+
+用于进行\+Dijkstra算法来计算两点之间最短路径的类  
+
+
+
+
+{\ttfamily \#include $<$Dijkstra.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dijkstra_ad7c7bb035ef96e4dbd652fe2bd11a2be}\label{class_dijkstra_ad7c7bb035ef96e4dbd652fe2bd11a2be}} 
+\mbox{\hyperlink{class_dijkstra_ad7c7bb035ef96e4dbd652fe2bd11a2be}{Dijkstra}} ()
+\begin{DoxyCompactList}\small\item\em 构造函数，用于将初始化学校的地图信息，学校的地图 信息见文档 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_dijkstra_a5f4a99a63b92805a304dea947ac69db5}\label{class_dijkstra_a5f4a99a63b92805a304dea947ac69db5}} 
+\mbox{\hyperlink{class_dijkstra_a5f4a99a63b92805a304dea947ac69db5}{$\sim$\+Dijkstra}} ()
+\begin{DoxyCompactList}\small\item\em 析构函数 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dijkstra_a3255e61fb8f96d8fbaf066d23cc6f9f4}{calculate\+Shortest\+Path}} (\mbox{\hyperlink{class_node}{Node}} starting\+Point, \mbox{\hyperlink{class_node}{Node}} terminal)
+\begin{DoxyCompactList}\small\item\em 计算最短路径 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node}{Node}} \mbox{\hyperlink{class_dijkstra_aeee098289e708f0c66ab5a63ea060dcf}{get\+Node}} (string name)
+\begin{DoxyCompactList}\small\item\em 通过节点名称在图内查询对应节点 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dijkstra_a12a9d5ac4b1e6aa09623de6f531c968b}\label{class_dijkstra_a12a9d5ac4b1e6aa09623de6f531c968b}} 
+\mbox{\hyperlink{class_graph}{Graph}} {\bfseries school\+Graph}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+用于进行\+Dijkstra算法来计算两点之间最短路径的类 
+
+@\+Class\+Name \mbox{\hyperlink{class_dijkstra}{Dijkstra}}
+
+Author\+: kojikoji \href{mailto:1310402980@qq.com}{\texttt{ 1310402980@qq.\+com}}
+
+Date\+: 2022/11/30 12\+:14
+
+Version\+: beta-\/1.\+0 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dijkstra_a3255e61fb8f96d8fbaf066d23cc6f9f4}\label{class_dijkstra_a3255e61fb8f96d8fbaf066d23cc6f9f4}} 
+\index{Dijkstra@{Dijkstra}!calculateShortestPath@{calculateShortestPath}}
+\index{calculateShortestPath@{calculateShortestPath}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{calculateShortestPath()}{calculateShortestPath()}}
+{\footnotesize\ttfamily void Dijkstra\+::calculate\+Shortest\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}}]{starting\+Point,  }\item[{\mbox{\hyperlink{class_node}{Node}}}]{terminal }\end{DoxyParamCaption})}
+
+
+
+计算最短路径 
+
+
+\begin{DoxyParams}{Parameters}
+{\em starting\+Point} & 起点 \\
+\hline
+{\em terminal} & 终点 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+返回最短路径的距离 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dijkstra_aeee098289e708f0c66ab5a63ea060dcf}\label{class_dijkstra_aeee098289e708f0c66ab5a63ea060dcf}} 
+\index{Dijkstra@{Dijkstra}!getNode@{getNode}}
+\index{getNode@{getNode}!Dijkstra@{Dijkstra}}
+\doxysubsubsection{\texorpdfstring{getNode()}{getNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node}{Node}} Dijkstra\+::get\+Node (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})}
+
+
+
+通过节点名称在图内查询对应节点 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & 给定的节点名称 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+返回查询到的指定的节点对象,未找到时，返回\+Node(0, \char`\"{}\+N\+U\+L\+L\char`\"{}) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+C\+S自学/\+C++/数据结构实验/最短路径/最短路径/Dijkstra.\+h\item 
+E\+:/\+C\+S自学/\+C++/数据结构实验/最短路径/最短路径/Dijkstra.\+cpp\end{DoxyCompactItemize}

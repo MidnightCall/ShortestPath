@@ -1,9 +1,9 @@
-#pragma once
+ï»¿#pragma once
 #include "Graph.h"
 
 /**
  * @ClassName DataLoader
- * @brief ÓÃÓÚ¼ÓÔØÑ§Ğ£µØÍ¼µÄÀà£¬ºóĞø¿É¸ü¸ÄÀ´Ìí¼ÓÆäËûµØÍ¼ĞÅÏ¢ 
+ * @brief ç”¨äºåŠ è½½å­¦æ ¡åœ°å›¾çš„ç±»ï¼Œåç»­å¯æ›´æ”¹æ¥æ·»åŠ å…¶ä»–åœ°å›¾ä¿¡æ¯ 
  * @brief Author: kojikoji 1310402980@qq.com
  * @brief Date: 2022/11/30 12:14
  * @brief Version: beta-1.0
@@ -13,8 +13,8 @@ class DataLoader
 {
 public:
 	/**
-	 * @brief ³õÊ¼»¯Ñ§Ğ£µØÍ¼
-	 * @return ·µ»ØÒ»¸öGraphÀà¶ÔÏó£¬ÆäÖĞ°üº¬Ñ§Ğ£µØÍ¼¸÷Î»ÖÃ½ÚµãºÍ¸÷½ÚµãÖ®¼äÂ·¾¶ĞÅÏ¢
+	 * @brief åˆå§‹åŒ–å­¦æ ¡åœ°å›¾
+	 * @return è¿”å›ä¸€ä¸ªGraphç±»å¯¹è±¡ï¼Œå…¶ä¸­åŒ…å«å­¦æ ¡åœ°å›¾å„ä½ç½®èŠ‚ç‚¹å’Œå„èŠ‚ç‚¹ä¹‹é—´è·¯å¾„ä¿¡æ¯
 	 */
 	Graph loadData();
 

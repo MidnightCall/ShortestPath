@@ -21,9 +21,6 @@
     <ClInclude Include="Dijkstra.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ShortestPathCalculatable.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="DataLoader.h">
       <Filter>头文件</Filter>
     </ClInclude>

@@ -1,0 +1,108 @@
+\hypertarget{class_node_heap}{}\doxysection{Node\+Heap Class Reference}
+\label{class_node_heap}\index{NodeHeap@{NodeHeap}}
+
+
+辅助类，通过改写堆来对\+Dijkstra算法进行优化  
+
+
+
+
+{\ttfamily \#include $<$Dijkstra.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node_heap_aa4a08bb544193ce561abd4673d7a1f33}{Node\+Heap}} (int size)
+\begin{DoxyCompactList}\small\item\em 内部类的构造函数，初始化内部类的字段 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_node_heap_a5467a91685b0e790675fa753b4b0cb59}{is\+Empty}} ()
+\begin{DoxyCompactList}\small\item\em 判断点集是否为空 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_heap_a2209dabe3f1fd3fa4563e410449f3b29}{add\+Or\+Update\+Or\+Ignore}} (\mbox{\hyperlink{class_node}{Node}} node, \mbox{\hyperlink{class_node}{Node}} prev\+Node, int distance, map$<$ \mbox{\hyperlink{class_node}{Node}}, \mbox{\hyperlink{class_node}{Node}} $>$ \&path\+Map)
+\begin{DoxyCompactList}\small\item\em 将一个点加入堆中，同时调整位置，更新对应的数据 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_node_record}{Node\+Record}} \mbox{\hyperlink{class_node_heap_ab7dfd1fb440e17d23774d5983520cab5}{pop}} ()
+\begin{DoxyCompactList}\small\item\em 弹出堆顶节点，由于采用了堆结构，该节点一定是当前状况下最短路径节点 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+辅助类，通过改写堆来对\+Dijkstra算法进行优化 
+
+核心思想是将记录节点路径长度的表用堆来存储，
+
+但使用系统提供的堆结构存在问题是当一个处理一个节点时，
+
+其关联的边连接的点对应的最短数据都会动态改变，系统提供的堆采取的是全局扫描的方式，
+
+时间复杂度为\+O(n$^\wedge$2),与遍历的方式相比并没有优化，从而采用改写堆的方式来解决
+
+使得时间复杂度能降低到\+O(nlogn) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_node_heap_aa4a08bb544193ce561abd4673d7a1f33}\label{class_node_heap_aa4a08bb544193ce561abd4673d7a1f33}} 
+\index{NodeHeap@{NodeHeap}!NodeHeap@{NodeHeap}}
+\index{NodeHeap@{NodeHeap}!NodeHeap@{NodeHeap}}
+\doxysubsubsection{\texorpdfstring{NodeHeap()}{NodeHeap()}}
+{\footnotesize\ttfamily Node\+Heap\+::\+Node\+Heap (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+内部类的构造函数，初始化内部类的字段 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & 初始化节点数组的最大规模 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_node_heap_a2209dabe3f1fd3fa4563e410449f3b29}\label{class_node_heap_a2209dabe3f1fd3fa4563e410449f3b29}} 
+\index{NodeHeap@{NodeHeap}!addOrUpdateOrIgnore@{addOrUpdateOrIgnore}}
+\index{addOrUpdateOrIgnore@{addOrUpdateOrIgnore}!NodeHeap@{NodeHeap}}
+\doxysubsubsection{\texorpdfstring{addOrUpdateOrIgnore()}{addOrUpdateOrIgnore()}}
+{\footnotesize\ttfamily void Node\+Heap\+::add\+Or\+Update\+Or\+Ignore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_node}{Node}}}]{node,  }\item[{\mbox{\hyperlink{class_node}{Node}}}]{prev\+Node,  }\item[{int}]{distance,  }\item[{map$<$ \mbox{\hyperlink{class_node}{Node}}, \mbox{\hyperlink{class_node}{Node}} $>$ \&}]{path\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+将一个点加入堆中，同时调整位置，更新对应的数据 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & 待加入的节点 \\
+\hline
+{\em prev\+Node} & 引出待加入节点的前驱节点 \\
+\hline
+{\em distance} & 待加入节点的当前距离 \\
+\hline
+{\em path\+Map} & 记录前驱节点的表 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_node_heap_a5467a91685b0e790675fa753b4b0cb59}\label{class_node_heap_a5467a91685b0e790675fa753b4b0cb59}} 
+\index{NodeHeap@{NodeHeap}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!NodeHeap@{NodeHeap}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool Node\+Heap\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+判断点集是否为空 
+
+\begin{DoxyReturn}{Returns}
+为空，返回1，否则返回0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_node_heap_ab7dfd1fb440e17d23774d5983520cab5}\label{class_node_heap_ab7dfd1fb440e17d23774d5983520cab5}} 
+\index{NodeHeap@{NodeHeap}!pop@{pop}}
+\index{pop@{pop}!NodeHeap@{NodeHeap}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node_record}{Node\+Record}} Node\+Heap\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+弹出堆顶节点，由于采用了堆结构，该节点一定是当前状况下最短路径节点 
+
+\begin{DoxyReturn}{Returns}
+返回堆顶节点的节点对象以及对应的最短距离 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+C\+S自学/\+C++/数据结构实验/最短路径/最短路径/Dijkstra.\+h\end{DoxyCompactItemize}

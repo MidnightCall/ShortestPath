@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <map>
 #include <set>
 #include <string>
@@ -10,7 +10,7 @@ class Edge;
 
 /**
  * @ClassName Graph
- * @brief ºËĞÄÊı¾İ½á¹¹£¬ÓÃÓÚ±íÊ¾Í¼µÄÀà£¬°üº¬µã¼¯ºÍ±ß¼¯Á½¸ö×Ö¶Î
+ * @brief æ ¸å¿ƒæ•°æ®ç»“æ„ï¼Œç”¨äºè¡¨ç¤ºå›¾çš„ç±»ï¼ŒåŒ…å«ç‚¹é›†å’Œè¾¹é›†ä¸¤ä¸ªå­—æ®µ
  * @brief Author: kojikoji 1310402980@qq.com
  * @brief Date: 2022/11/30 12:30
  * @brief Version: beta-1.0
@@ -18,19 +18,19 @@ class Edge;
 class Graph
 {
 public:
-	map<int, Node> nodes; // Í¼°üº¬µÄµã¼¯
-	set<Edge> edges; // Í¼°üº¬µÄ±ß¼¯
+	map<int, Node> nodes; // å›¾åŒ…å«çš„ç‚¹é›†
+	set<Edge> edges; // å›¾åŒ…å«çš„è¾¹é›†
 
 	/**
-	 * @brief ¿Õ²Î¹¹ÔìÆ÷
+	 * @brief ç©ºå‚æ„é€ å™¨
 	 */
 	Graph();
 };
 
 /**
  * @ClassName Node
- * @brief ±íÊ¾Í¼ÄÚ½ÚµãµÄÀà£¬°üº¬µã¶È¡¢Èë¶È¡¢³ö¶ÈÒÔ¼°½ÚµãÃû³ÆµÄ×Ö¶Î
- *		  ´ËÍâ»¹°üº¬Óë¸ÃµãÏà¹ØÁªµÄµãºÍ±ßµÄ¼¯ºÏ 
+ * @brief è¡¨ç¤ºå›¾å†…èŠ‚ç‚¹çš„ç±»ï¼ŒåŒ…å«ç‚¹åº¦ã€å…¥åº¦ã€å‡ºåº¦ä»¥åŠèŠ‚ç‚¹åç§°çš„å­—æ®µ
+ *		  æ­¤å¤–è¿˜åŒ…å«ä¸è¯¥ç‚¹ç›¸å…³è”çš„ç‚¹å’Œè¾¹çš„é›†åˆ 
  * @brief Author: kojikoji 1310402980@qq.com
  * @brief Date: 2022/11/30 12:35
  * @brief Version: beta-1.0
@@ -38,28 +38,28 @@ public:
 class Node
 {
 public:
-	string name; // ¶ÔÓ¦µÄµØµãÃû³Æ
+	string name; // å¯¹åº”çš„åœ°ç‚¹åç§°
 
-	vector<Edge> edges; // Ïà¹ØÁªµÄ±ßµÄ¼¯ºÏ
+	vector<Edge> edges; // ç›¸å…³è”çš„è¾¹çš„é›†åˆ
 
-	// ÔËËã·ûÖØÔØ
+	// è¿ç®—ç¬¦é‡è½½
 	bool operator==(const Node& other) const;
 
 	bool operator!=(const Node& other) const;
 
 	bool operator<(const Node& other) const;
 
-	// Ä¬ÈÏ¹¹Ôìº¯Êı
+	// é»˜è®¤æ„é€ å‡½æ•°
 	Node();
 
-	// ³õÊ¼»¯Ãû³Æ¹¹ÔìÆ÷
+	// åˆå§‹åŒ–åç§°æ„é€ å™¨
 	Node(string name);
 
 };
 
 /**
  * @ClassName Edge
- * @brief ÓÃÓÚ±íÊ¾Í¼ÖĞ±ßµÄÊı¾İ½á¹¹£¬°üº¬±ßµÄÈ¨ÖØ£¬Èëµã¡¢³öµãÈı¸ö×Ö¶Î
+ * @brief ç”¨äºè¡¨ç¤ºå›¾ä¸­è¾¹çš„æ•°æ®ç»“æ„ï¼ŒåŒ…å«è¾¹çš„æƒé‡ï¼Œå…¥ç‚¹ã€å‡ºç‚¹ä¸‰ä¸ªå­—æ®µ
  * @brief Author: kojikoji 1310402980@qq.com
  * @brief Date: 2022/11/30 13:37
  * @brief Version: beta-1.0
@@ -68,17 +68,17 @@ public:
 class Edge
 {
 public:
-	int weight; // ±ßµÄÈ¨ÖØ
-	Node* from; // Èëµã
-	Node* to; // ³öµã
+	int weight; // è¾¹çš„æƒé‡
+	Node* from; // å…¥ç‚¹
+	Node* to; // å‡ºç‚¹
 	
-	// ÖØÔØ<ÔËËã·û
+	// é‡è½½<è¿ç®—ç¬¦
 	bool operator<(const Edge& other) const;
 
-	// Ä¬ÈÏ¹¹Ôìº¯Êı
+	// é»˜è®¤æ„é€ å‡½æ•°
 	Edge();
 
-	// ³õÊ¼»¯±ßÈ¨ÖØ£¬³öµã£¬ÈëµãµÄ¹¹Ôìº¯Êı
+	// åˆå§‹åŒ–è¾¹æƒé‡ï¼Œå‡ºç‚¹ï¼Œå…¥ç‚¹çš„æ„é€ å‡½æ•°
 	Edge(int weight, Node *from, Node *to);
 
 };

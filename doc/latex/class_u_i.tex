@@ -1,0 +1,70 @@
+\hypertarget{class_u_i}{}\doxysection{UI Class Reference}
+\label{class_u_i}\index{UI@{UI}}
+
+
+用于管理用户界面相关操作的类  
+
+
+
+
+{\ttfamily \#include $<$U\+I.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_u_i_ab745e0fb0cbd82d4fd14978f367a8cc7}\label{class_u_i_ab745e0fb0cbd82d4fd14978f367a8cc7}} 
+void \mbox{\hyperlink{class_u_i_ab745e0fb0cbd82d4fd14978f367a8cc7}{print\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em 菜单打印 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a48a0a7ffaedc4d6afdd93f241bacc6ba}\label{class_u_i_a48a0a7ffaedc4d6afdd93f241bacc6ba}} 
+void \mbox{\hyperlink{class_u_i_a48a0a7ffaedc4d6afdd93f241bacc6ba}{print\+Map}} ()
+\begin{DoxyCompactList}\small\item\em 地图打印 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_af4c5e1d101c376f9a76eb2279d3d3fd1}\label{class_u_i_af4c5e1d101c376f9a76eb2279d3d3fd1}} 
+void \mbox{\hyperlink{class_u_i_af4c5e1d101c376f9a76eb2279d3d3fd1}{print\+List}} ()
+\begin{DoxyCompactList}\small\item\em 打印可供选择的节点列表 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_u_i_a9aedc6468b661e152192e0250e2b1ae2}{getchoice}} (int lower\+Bound, int upper\+Bound)
+\begin{DoxyCompactList}\small\item\em 获取用户的选择结果，当用户的选择不在菜单内时，会提示重新输入 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a5606ae8456f61cd5b78f177213fddefd}\label{class_u_i_a5606ae8456f61cd5b78f177213fddefd}} 
+void \mbox{\hyperlink{class_u_i_a5606ae8456f61cd5b78f177213fddefd}{calculate}} ()
+\begin{DoxyCompactList}\small\item\em 计算最短路径的操作 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_u_i_a6bdaec41e41f67039516936fae3f0c30}\label{class_u_i_a6bdaec41e41f67039516936fae3f0c30}} 
+void \mbox{\hyperlink{class_u_i_a6bdaec41e41f67039516936fae3f0c30}{run}} ()
+\begin{DoxyCompactList}\small\item\em 程序运行的入口 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+用于管理用户界面相关操作的类 
+
+@\+Class\+Name \mbox{\hyperlink{class_u_i}{UI}}
+
+Author\+: kojikoji \href{mailto:1310402980@qq.com}{\texttt{ 1310402980@qq.\+com}}
+
+Date\+: 2022/12/3 16\+:14
+
+Version\+: beta-\/1.\+0 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_a9aedc6468b661e152192e0250e2b1ae2}\label{class_u_i_a9aedc6468b661e152192e0250e2b1ae2}} 
+\index{UI@{UI}!getchoice@{getchoice}}
+\index{getchoice@{getchoice}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{getchoice()}{getchoice()}}
+{\footnotesize\ttfamily int U\+I\+::getchoice (\begin{DoxyParamCaption}\item[{int}]{lower\+Bound,  }\item[{int}]{upper\+Bound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+获取用户的选择结果，当用户的选择不在菜单内时，会提示重新输入 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lower\+Bound} & 选择范围的下界 \\
+\hline
+{\em upper\+Bound} & 选择范围的上届 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+返回用户选择的结果，为一个给定范围内的整数 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+C\+S自学/\+C++/数据结构实验/最短路径/最短路径/U\+I.\+hpp\end{DoxyCompactItemize}

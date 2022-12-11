@@ -1,84 +1,82 @@
-#pragma once
+ï»¿#pragma once
 #include <iostream>
 #include <map>
 #include <set>
 #include <stack>
 using namespace std;
 #include "Graph.h"
-#include "ShortestPathCalculatable.h"
 #include "DataLoader.h"
 
 #define NULLNODE Node("NULL")
 
+class ShortestPathData;
+
 /**
  * @ClassName Dijkstra
- * @brief ÓÃÓÚ½øĞĞDijkstraËã·¨À´¼ÆËãÁ½µãÖ®¼ä×î¶ÌÂ·¾¶µÄÀà
+ * @brief ç”¨äºè¿›è¡ŒDijkstraç®—æ³•æ¥è®¡ç®—ä¸¤ç‚¹ä¹‹é—´æœ€çŸ­è·¯å¾„çš„ç±»
  * @brief Author: kojikoji 1310402980@qq.com
  * @brief Date: 2022/11/30 12:14
  * @brief Version: beta-1.0
  */
-
-class ShortestPathData;
-
-class Dijkstra : public ShortestPathCalculatable
+class Dijkstra
 {
 public:
-	Graph schoolGraph; // ¼ÇÔØÑ§Ğ£µØÍ¼µÄGraphÀà
+	Graph schoolGraph; // è®°è½½å­¦æ ¡åœ°å›¾çš„Graphç±»
 
     /**
-     * @brief ¹¹Ôìº¯Êı£¬ÓÃÓÚ½«³õÊ¼»¯Ñ§Ğ£µÄµØÍ¼ĞÅÏ¢£¬Ñ§Ğ£µÄµØÍ¼
-     *        ĞÅÏ¢¼ûÎÄµµ
+     * @brief æ„é€ å‡½æ•°ï¼Œç”¨äºå°†åˆå§‹åŒ–å­¦æ ¡çš„åœ°å›¾ä¿¡æ¯ï¼Œå­¦æ ¡çš„åœ°å›¾
+     *        ä¿¡æ¯è§æ–‡æ¡£
      */
 	Dijkstra();
 
     /**
-     * @brief Îö¹¹º¯Êı
+     * @brief ææ„å‡½æ•°
      */
     ~Dijkstra();
 
     /**
-     * @brief ¼ÆËã×î¶ÌÂ·¾¶
-     * @param startingPoint Æğµã
-     * @param terminal ÖÕµã
-     * @return ·µ»Ø×î¶ÌÂ·¾¶µÄ¾àÀë
+     * @brief è®¡ç®—æœ€çŸ­è·¯å¾„
+     * @param startingPoint èµ·ç‚¹
+     * @param terminal ç»ˆç‚¹
+     * @return è¿”å›æœ€çŸ­è·¯å¾„çš„è·ç¦»
      */
     void calculateShortestPath(Node startingPoint, Node terminal);
 
     /**
-     * @brief Í¨¹ı½ÚµãÃû³ÆÔÚÍ¼ÄÚ²éÑ¯¶ÔÓ¦½Úµã
-     * @param name ¸ø¶¨µÄ½ÚµãÃû³Æ
-     * @return ·µ»Ø²éÑ¯µ½µÄÖ¸¶¨µÄ½Úµã¶ÔÏó,Î´ÕÒµ½Ê±£¬·µ»ØNode(0, "NULL")
+     * @brief é€šè¿‡èŠ‚ç‚¹åç§°åœ¨å›¾å†…æŸ¥è¯¢å¯¹åº”èŠ‚ç‚¹
+     * @param name ç»™å®šçš„èŠ‚ç‚¹åç§°
+     * @return è¿”å›æŸ¥è¯¢åˆ°çš„æŒ‡å®šçš„èŠ‚ç‚¹å¯¹è±¡,æœªæ‰¾åˆ°æ—¶ï¼Œè¿”å›Node(0, "NULL")
      */
     Node getNode(string name);
 
 private:
     /**
-     * @brief ½«Ñ§Ğ£µÄµØÍ¼ĞÅÏ¢×°ÔØµ½schoolGraph±äÁ¿ÖĞ
+     * @brief å°†å­¦æ ¡çš„åœ°å›¾ä¿¡æ¯è£…è½½åˆ°schoolGraphå˜é‡ä¸­
      */
     void generateGraph();
 
 	/**
-	 * @brief ¼ÆËã¸ø¶¨½Úµãµ½ÆäËû½ÚµãµÄ×î¶ÌÂ·¾¶
-	 * @brief Îª³õ°æÊµÏÖ£¬Ê¹ÓÃµÄÊÇ´«Í³dijkstraËã·¨µÄÊµÏÖ£¬Ğ§ÂÊ½ÏµÍ
-	 * @param node ¸ø¶¨µÄ½Úµã
-	 * @return ·µ»Ø×î¶ÌÂ·¾¶µÄ¾àÀë
+	 * @brief è®¡ç®—ç»™å®šèŠ‚ç‚¹åˆ°å…¶ä»–èŠ‚ç‚¹çš„æœ€çŸ­è·¯å¾„
+	 * @brief ä¸ºåˆç‰ˆå®ç°ï¼Œä½¿ç”¨çš„æ˜¯ä¼ ç»Ÿdijkstraç®—æ³•çš„å®ç°ï¼Œæ•ˆç‡è¾ƒä½
+	 * @param node ç»™å®šçš„èŠ‚ç‚¹
+	 * @return è¿”å›æœ€çŸ­è·¯å¾„çš„è·ç¦»
 	 */
 	ShortestPathData dijkstra1(Node node);
 
 	/**
-	 * @brief ¼ÆËã¸ø¶¨½Úµãµ½ÆäËû½ÚµãµÄ×î¶ÌÂ·¾¶
-	 * @brief ÓÃ¸ÄĞ´¶ÑµÄ·½Ê½À´ÓÅ»¯£¬Ğ§ÂÊ½Ï¸ß
-	 * @param node ¸ø¶¨µÄ½Úµã
-	 * @param size ½ÚµãµÄ¹æÄ£
-	 * @return ·µ»Ø×î¶ÌÂ·¾¶µÄ¾àÀë
+	 * @brief è®¡ç®—ç»™å®šèŠ‚ç‚¹åˆ°å…¶ä»–èŠ‚ç‚¹çš„æœ€çŸ­è·¯å¾„
+	 * @brief ç”¨æ”¹å†™å †çš„æ–¹å¼æ¥ä¼˜åŒ–ï¼Œæ•ˆç‡è¾ƒé«˜
+	 * @param node ç»™å®šçš„èŠ‚ç‚¹
+	 * @param size èŠ‚ç‚¹çš„è§„æ¨¡
+	 * @return è¿”å›æœ€çŸ­è·¯å¾„çš„è·ç¦»
 	 */
 	ShortestPathData dijkstra2(Node node, int size);
 
     /**
-     * @brief ¸¨Öúº¯Êı£¬µÃµ½µ±Ç°×îĞ¡¾àÀë±íÖĞÓëÆğµã¾àÀë×îĞ¡ÇÒÉĞÎ´±»Ñ¡ÔñµÄ½Úµã
-     * @param distanceMap ¼ÇÂ¼Ã¿¸ö½ÚµãÓë³õÊ¼½ÚµãµÄÄ¿Ç°×îĞ¡¾àÀëµÄ¹şÏ£±í
-     * @param touchedNodes ¼ÇÂ¼ÒÑ¾­µÃµ½×îĞ¡¾àÀëÇÒ±»Ñ¡ÔñµÄ½Úµã
-     * @return ·µ»Ø±íÖĞÓëÆğµã¾àÀë×îĞ¡ÇÒÉĞÎ´±»Ñ¡ÔñµÄ½Úµã
+     * @brief è¾…åŠ©å‡½æ•°ï¼Œå¾—åˆ°å½“å‰æœ€å°è·ç¦»è¡¨ä¸­ä¸èµ·ç‚¹è·ç¦»æœ€å°ä¸”å°šæœªè¢«é€‰æ‹©çš„èŠ‚ç‚¹
+     * @param distanceMap è®°å½•æ¯ä¸ªèŠ‚ç‚¹ä¸åˆå§‹èŠ‚ç‚¹çš„ç›®å‰æœ€å°è·ç¦»çš„å“ˆå¸Œè¡¨
+     * @param touchedNodes è®°å½•å·²ç»å¾—åˆ°æœ€å°è·ç¦»ä¸”è¢«é€‰æ‹©çš„èŠ‚ç‚¹
+     * @return è¿”å›è¡¨ä¸­ä¸èµ·ç‚¹è·ç¦»æœ€å°ä¸”å°šæœªè¢«é€‰æ‹©çš„èŠ‚ç‚¹
      */
     Node getMinDistanceAndUnselectedNode(map<Node, int> distanceMap,
         set<Node> touchedNodes);
@@ -86,12 +84,12 @@ private:
 };
 
 /**
- * @brief ¸¨ÖúÀà£¬ÓÃÓÚ×°ÔØÊ¹ÓÃdijkstraËã·¨Çó½âµÃµ½µÄÊı¾İ
+ * @brief è¾…åŠ©ç±»ï¼Œç”¨äºè£…è½½ä½¿ç”¨dijkstraç®—æ³•æ±‚è§£å¾—åˆ°çš„æ•°æ®
  */
 class ShortestPathData {
 public:
-	map<Node, int> distanceMap; // ÀëÆğµã×î¶ÌµÄ¾àÀë
-	map<Node, Node> pathMap; // ×î¶ÌÂ·¾¶ÉÏµÄÇ°Çı½Úµã
+	map<Node, int> distanceMap; // ç¦»èµ·ç‚¹æœ€çŸ­çš„è·ç¦»
+	map<Node, Node> pathMap; // æœ€çŸ­è·¯å¾„ä¸Šçš„å‰é©±èŠ‚ç‚¹
 
 	ShortestPathData() {}
 
@@ -104,8 +102,8 @@ public:
 };
 
 /**
- * @brief ¸¨ÖúÄÚ²¿Àà£¬Ö»×÷ÓÃÔÚNodeHeapÄÚ²¿
- *		  ÓÃÓÚ´ò°üNodeºÍdistanceÊı¾İ
+ * @brief è¾…åŠ©å†…éƒ¨ç±»ï¼Œåªä½œç”¨åœ¨NodeHeapå†…éƒ¨
+ *		  ç”¨äºæ‰“åŒ…Nodeå’Œdistanceæ•°æ®
  */
 class NodeRecord {
 public:
@@ -121,24 +119,24 @@ public:
 };
 
 /**
- * @brief ¸¨ÖúÀà£¬Í¨¹ı¸ÄĞ´¶ÑÀ´¶ÔDijkstraËã·¨½øĞĞÓÅ»¯
- * @brief ºËĞÄË¼ÏëÊÇ½«¼ÇÂ¼½ÚµãÂ·¾¶³¤¶ÈµÄ±íÓÃ¶ÑÀ´´æ´¢£¬
- * @brief µ«Ê¹ÓÃÏµÍ³Ìá¹©µÄ¶Ñ½á¹¹´æÔÚÎÊÌâÊÇµ±Ò»¸ö´¦ÀíÒ»¸ö½ÚµãÊ±£¬
- * @brief Æä¹ØÁªµÄ±ßÁ¬½ÓµÄµã¶ÔÓ¦µÄ×î¶ÌÊı¾İ¶¼»á¶¯Ì¬¸Ä±ä£¬ÏµÍ³Ìá¹©µÄ¶Ñ²ÉÈ¡µÄÊÇÈ«¾ÖÉ¨ÃèµÄ·½Ê½£¬
- * @brief Ê±¼ä¸´ÔÓ¶ÈÎªO(n^2),Óë±éÀúµÄ·½Ê½Ïà±È²¢Ã»ÓĞÓÅ»¯£¬´Ó¶ø²ÉÓÃ¸ÄĞ´¶ÑµÄ·½Ê½À´½â¾ö
- * @brief Ê¹µÃÊ±¼ä¸´ÔÓ¶ÈÄÜ½µµÍµ½O(nlogn)
+ * @brief è¾…åŠ©ç±»ï¼Œé€šè¿‡æ”¹å†™å †æ¥å¯¹Dijkstraç®—æ³•è¿›è¡Œä¼˜åŒ–
+ * @brief æ ¸å¿ƒæ€æƒ³æ˜¯å°†è®°å½•èŠ‚ç‚¹è·¯å¾„é•¿åº¦çš„è¡¨ç”¨å †æ¥å­˜å‚¨ï¼Œ
+ * @brief ä½†ä½¿ç”¨ç³»ç»Ÿæä¾›çš„å †ç»“æ„å­˜åœ¨é—®é¢˜æ˜¯å½“ä¸€ä¸ªå¤„ç†ä¸€ä¸ªèŠ‚ç‚¹æ—¶ï¼Œ
+ * @brief å…¶å…³è”çš„è¾¹è¿æ¥çš„ç‚¹å¯¹åº”çš„æœ€çŸ­æ•°æ®éƒ½ä¼šåŠ¨æ€æ”¹å˜ï¼Œç³»ç»Ÿæä¾›çš„å †é‡‡å–çš„æ˜¯å…¨å±€æ‰«æçš„æ–¹å¼ï¼Œ
+ * @brief æ—¶é—´å¤æ‚åº¦ä¸ºO(n^2),ä¸éå†çš„æ–¹å¼ç›¸æ¯”å¹¶æ²¡æœ‰ä¼˜åŒ–ï¼Œä»è€Œé‡‡ç”¨æ”¹å†™å †çš„æ–¹å¼æ¥è§£å†³
+ * @brief ä½¿å¾—æ—¶é—´å¤æ‚åº¦èƒ½é™ä½åˆ°O(nlogn)
  */
 class NodeHeap {
 private:
-	Node* nodes; // ´æ´¢½ÚµãµÄÊı×é
-	map<Node, int> heapIndexMap; // ´æ´¢½ÚµãºÍ¶ÔÓ¦Êı×éÏÂ±êµÄ±í
-	map<Node, int> distanceMap; // ´æ´¢½ÚµãÓë¶ÔÓ¦µ±Ç°×î¶ÌÂ·¾¶
-	int size; // µ±Ç°½ÚµãÊı×éµÄ¹æÄ£
+	Node* nodes; // å­˜å‚¨èŠ‚ç‚¹çš„æ•°ç»„
+	map<Node, int> heapIndexMap; // å­˜å‚¨èŠ‚ç‚¹å’Œå¯¹åº”æ•°ç»„ä¸‹æ ‡çš„è¡¨
+	map<Node, int> distanceMap; // å­˜å‚¨èŠ‚ç‚¹ä¸å¯¹åº”å½“å‰æœ€çŸ­è·¯å¾„
+	int size; // å½“å‰èŠ‚ç‚¹æ•°ç»„çš„è§„æ¨¡
 
 public:
 	/**
-	 * @brief ÄÚ²¿ÀàµÄ¹¹Ôìº¯Êı£¬³õÊ¼»¯ÄÚ²¿ÀàµÄ×Ö¶Î
-	 * @param size ³õÊ¼»¯½ÚµãÊı×éµÄ×î´ó¹æÄ£
+	 * @brief å†…éƒ¨ç±»çš„æ„é€ å‡½æ•°ï¼Œåˆå§‹åŒ–å†…éƒ¨ç±»çš„å­—æ®µ
+	 * @param size åˆå§‹åŒ–èŠ‚ç‚¹æ•°ç»„çš„æœ€å¤§è§„æ¨¡
 	 */
 	NodeHeap(int size) {
 		nodes = new Node[size];
@@ -146,19 +144,19 @@ public:
 	}
 
 	/**
-	 * @brief ÅĞ¶Ïµã¼¯ÊÇ·ñÎª¿Õ
-	 * @return Îª¿Õ£¬·µ»Ø1£¬·ñÔò·µ»Ø0
+	 * @brief åˆ¤æ–­ç‚¹é›†æ˜¯å¦ä¸ºç©º
+	 * @return ä¸ºç©ºï¼Œè¿”å›1ï¼Œå¦åˆ™è¿”å›0
 	 */
 	bool isEmpty() {
 		return size == 0;
 	}
 
 	/**
-	 * @brief ½«Ò»¸öµã¼ÓÈë¶ÑÖĞ£¬Í¬Ê±µ÷ÕûÎ»ÖÃ£¬¸üĞÂ¶ÔÓ¦µÄÊı¾İ
-	 * @param node ´ı¼ÓÈëµÄ½Úµã
-	 * @param prevNode Òı³ö´ı¼ÓÈë½ÚµãµÄÇ°Çı½Úµã
-	 * @param distance ´ı¼ÓÈë½ÚµãµÄµ±Ç°¾àÀë
-	 * @param pathMap ¼ÇÂ¼Ç°Çı½ÚµãµÄ±í
+	 * @brief å°†ä¸€ä¸ªç‚¹åŠ å…¥å †ä¸­ï¼ŒåŒæ—¶è°ƒæ•´ä½ç½®ï¼Œæ›´æ–°å¯¹åº”çš„æ•°æ®
+	 * @param node å¾…åŠ å…¥çš„èŠ‚ç‚¹
+	 * @param prevNode å¼•å‡ºå¾…åŠ å…¥èŠ‚ç‚¹çš„å‰é©±èŠ‚ç‚¹
+	 * @param distance å¾…åŠ å…¥èŠ‚ç‚¹çš„å½“å‰è·ç¦»
+	 * @param pathMap è®°å½•å‰é©±èŠ‚ç‚¹çš„è¡¨
 	 */
 	void addOrUpdateOrIgnore(Node node, Node prevNode, int distance, map<Node, Node> &pathMap) {
 		if (inHeap(node)) {
@@ -180,8 +178,8 @@ public:
 	}
 
 	/**
-	 * @brief µ¯³ö¶Ñ¶¥½Úµã£¬ÓÉÓÚ²ÉÓÃÁË¶Ñ½á¹¹£¬¸Ã½ÚµãÒ»¶¨ÊÇµ±Ç°×´¿öÏÂ×î¶ÌÂ·¾¶½Úµã
-	 * @return ·µ»Ø¶Ñ¶¥½ÚµãµÄ½Úµã¶ÔÏóÒÔ¼°¶ÔÓ¦µÄ×î¶Ì¾àÀë
+	 * @brief å¼¹å‡ºå †é¡¶èŠ‚ç‚¹ï¼Œç”±äºé‡‡ç”¨äº†å †ç»“æ„ï¼Œè¯¥èŠ‚ç‚¹ä¸€å®šæ˜¯å½“å‰çŠ¶å†µä¸‹æœ€çŸ­è·¯å¾„èŠ‚ç‚¹
+	 * @return è¿”å›å †é¡¶èŠ‚ç‚¹çš„èŠ‚ç‚¹å¯¹è±¡ä»¥åŠå¯¹åº”çš„æœ€çŸ­è·ç¦»
 	 */
 	NodeRecord pop() {
 		NodeRecord nodeRecord(nodes[0], distanceMap.find(nodes[0])->second);
@@ -195,9 +193,9 @@ public:
 
 private:
 	/**
-	 * @brief ²åÈëÉÏÒÆ²Ù×÷£¬½«Ö¸¶¨½Úµã²åÈë¶ÑÖĞ£¬²¢µ÷Õûµ½ÊÊµ±Î»ÖÃ
-	 * @param node ´ı²åÈëµÄ½Úµã
-	 * @param index ´ı²åÈë½ÚµãÔÚ½ÚµãÊı×éÖĞµÄÏÂ±ê
+	 * @brief æ’å…¥ä¸Šç§»æ“ä½œï¼Œå°†æŒ‡å®šèŠ‚ç‚¹æ’å…¥å †ä¸­ï¼Œå¹¶è°ƒæ•´åˆ°é€‚å½“ä½ç½®
+	 * @param node å¾…æ’å…¥çš„èŠ‚ç‚¹
+	 * @param index å¾…æ’å…¥èŠ‚ç‚¹åœ¨èŠ‚ç‚¹æ•°ç»„ä¸­çš„ä¸‹æ ‡
 	 */
 	void insertHeapify(Node node, int index) {
 		while (distanceMap.find(nodes[index])->second < distanceMap.find(nodes[(index - 1) / 2])->second) {
@@ -207,9 +205,9 @@ private:
 	}
 
 	/**
-	 * @brief ²åÈëÏÂÒÆ²Ù×÷£¬½«¶ÑÖĞµÄ½ÚµãÏÂÒÆµ½Ö¸¶¨Î»ÖÃ
-	 * @param index ´ıµ÷ÕûµÄ½ÚµãÎ»ÖÃ
-	 * @param size ¶ÑµÄµ±Ç°´óĞ¡£¬ÓÃÓÚ¼ì²âÊÇ·ñÏÂÒÆµ½×îºóÒ»²ã
+	 * @brief æ’å…¥ä¸‹ç§»æ“ä½œï¼Œå°†å †ä¸­çš„èŠ‚ç‚¹ä¸‹ç§»åˆ°æŒ‡å®šä½ç½®
+	 * @param index å¾…è°ƒæ•´çš„èŠ‚ç‚¹ä½ç½®
+	 * @param size å †çš„å½“å‰å¤§å°ï¼Œç”¨äºæ£€æµ‹æ˜¯å¦ä¸‹ç§»åˆ°æœ€åä¸€å±‚
 	 */
 	void heapify(int index, int size) {
 		int left = index << 1 + 1;
@@ -227,27 +225,27 @@ private:
 	}
 
 	/**
-	 * @brief ¼ì²â½ÚµãÊÇ·ñÒÑÔÚ¶ÑÖĞ´¦Àí¹ı
-	 * @param node ´ı¼ì²âµÄ½Úµã 
-	 * @return ´¦Àí¹ı·µ»Øtrue,·ñÔò·µ»Øfalse
+	 * @brief æ£€æµ‹èŠ‚ç‚¹æ˜¯å¦å·²åœ¨å †ä¸­å¤„ç†è¿‡
+	 * @param node å¾…æ£€æµ‹çš„èŠ‚ç‚¹ 
+	 * @return å¤„ç†è¿‡è¿”å›true,å¦åˆ™è¿”å›false
 	 */
 	bool isEntered(Node node) {
 		return heapIndexMap.find(node) != heapIndexMap.end();
 	}
 
 	/**
-	 * @brief ¼ì²â½ÚµãÊÇ·ñÔÚ¶ÑÖĞ
-	 * @param node ´ı¼ì²âµÄ½Úµã
-	 * @return ÒÑ¼ÓÈë·µ»Øtrue,·ñÔò·µ»Øfalse
+	 * @brief æ£€æµ‹èŠ‚ç‚¹æ˜¯å¦åœ¨å †ä¸­
+	 * @param node å¾…æ£€æµ‹çš„èŠ‚ç‚¹
+	 * @return å·²åŠ å…¥è¿”å›true,å¦åˆ™è¿”å›false
 	 */
 	bool inHeap(Node node) {
 		return isEntered(node) && heapIndexMap.find(node)->second != -1;
 	}
 
 	/**
-	 * @brief ½»»»¶ÑÖĞÁ½¸ö½ÚµãµÄÎ»ÖÃ£¬Í¬Ê±¸üĞÂÊı¾İÇé¿ö
-	 * @param index1 ´ı½»»»µÄ½Úµã1ÔÚÊı×éÖĞµÄÏÂ±ê
-	 * @param index2 ´ø½»»»µÄ½Úµã2ÔÚÊı×éÖĞµÄÏÂ±ê
+	 * @brief äº¤æ¢å †ä¸­ä¸¤ä¸ªèŠ‚ç‚¹çš„ä½ç½®ï¼ŒåŒæ—¶æ›´æ–°æ•°æ®æƒ…å†µ
+	 * @param index1 å¾…äº¤æ¢çš„èŠ‚ç‚¹1åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡
+	 * @param index2 å¸¦äº¤æ¢çš„èŠ‚ç‚¹2åœ¨æ•°ç»„ä¸­çš„ä¸‹æ ‡
 	 */
 	void swap(int index1, int index2) {
 		heapIndexMap.find(nodes[index1])->second = index2;

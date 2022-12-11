@@ -1,8 +1,15 @@
-#ifndef TEST_HPP_
+ï»¿#ifndef TEST_HPP_
 #define TEST_HPP_
 
 #include "Dijkstra.h"
 
+/**
+ * @ClassName Test
+ * @brief æµ‹è¯•ç”¨ç±»ï¼Œå®ŒæˆååºŸå¼ƒ
+ * @brief Author: kojikoji 1310402980@qq.com
+ * @brief Date: 2022/11/30 12:14
+ * @brief Version: beta-1.0
+ */
 class Test {
 public:
 	Dijkstra test;
@@ -15,10 +22,10 @@ public:
 	void testDijkstra2() {
 		string start;
 		string end;
-		cout << "ÇëÊäÈëÆğµã:" << endl;
+		cout << "è¯·è¾“å…¥èµ·ç‚¹:" << endl;
 		cin >> start;
 
-		cout << "ÇëÊäÈëÖÕµã:" << endl;
+		cout << "è¯·è¾“å…¥ç»ˆç‚¹:" << endl;
 		cin >> end;
 
 		test.calculateShortestPath(test.getNode(start), test.getNode(end));

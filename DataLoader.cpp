@@ -1,112 +1,363 @@
-#include "DataLoader.h"
+ï»¿#include "DataLoader.h"
 
 Graph DataLoader::loadData() {
-	// ³õÊ¼»¯Ñ§Ğ£µØÍ¼
+	// åˆå§‹åŒ–å­¦æ ¡åœ°å›¾
 	Graph schoolMap;
 
-	// ³õÊ¼»¯µã
-	Node* node1 = new Node("±£ÎÀ´¦");
-	Node* node2 = new Node("¾©¶«¿ìµİÕ¾");
-	Node* node3 = new Node("Î÷Ô°Ê®ÉáÎ§ºÏ");
-	Node* node4 = new Node("Î÷Ô°¶ş²ÍÌü");
-	Node* node5 = new Node("Î÷Ô°ÁùÉáÎ§ºÏ");
-	Node* node6 = new Node("Î÷Ô°Ò»ÉáÎ§ºÏ");
-	Node* node7 = new Node("»ªÁª³¬ÊĞ");
-	Node* node8 = new Node("ÍøÇò³¡");
-	Node* node9 = new Node("Î÷Ô°Ò»²ÍÌü");
-	Node* node10 = new Node("¶şºÅÔË¶¯³¡");
-	Node* node11 = new Node("²ËÄñæäÕ¾");
-	Node* node12 = new Node("¹¤³ÌÑµÁ·ÖĞĞÄ");
-	Node* node13 = new Node("Í¼Êé¹İ");
-	Node* node14 = new Node("µÚÒ»½ÌÑ§Â¥");
-	Node* node15 = new Node("×ÛºÏÂ¥");
-	Node* node16 = new Node("µÚ¶ş»ù´¡ÊµÑéÂ¥");
-	Node* node17 = new Node("¶«Ô°Ò»²ÍÌü");
-	Node* node18 = new Node("ÎÄ¿ÆÂ¥");
-	Node* node19 = new Node("Ò»ºÅÔË¶¯³¡");
-	Node* node20 = new Node("¶«ÃÅ");
+	// åˆå§‹åŒ–ç‚¹
+	Node* node1 = new Node("ä¿å«å¤„");
+	Node* node2 = new Node("äº¬ä¸œå¿«é€’ç«™");
+	Node* node3 = new Node("è¥¿å›­åèˆå›´åˆ");
+	Node* node4 = new Node("è¥¿å›­äºŒé¤å…");
+	Node* node5 = new Node("è¥¿å›­å…­èˆå›´åˆ");
+	Node* node6 = new Node("è¥¿å›­ä¸€èˆå›´åˆ");
+	Node* node7 = new Node("åè”è¶…å¸‚");
+	Node* node8 = new Node("ç½‘çƒåœº");
+	Node* node9 = new Node("è¥¿å›­ä¸€é¤å…");
+	Node* node10 = new Node("äºŒå·è¿åŠ¨åœº");
+	Node* node11 = new Node("èœé¸Ÿé©¿ç«™");
+	Node* node12 = new Node("å·¥è®­ä¸­å¿ƒ");
+	Node* node13 = new Node("å›¾ä¹¦é¦†");
+	Node* node14 = new Node("ç¬¬ä¸€æ•™å­¦æ¥¼");
+	Node* node15 = new Node("ç»¼åˆæ¥¼");
+	Node* node16 = new Node("ç¬¬äºŒåŸºç¡€å®éªŒæ¥¼");
+	Node* node17 = new Node("ä¸œå›­ä¸€é¤å…");
+	Node* node18 = new Node("æ–‡ç§‘æ¥¼");
+	Node* node19 = new Node("ä¸€å·è¿åŠ¨åœº");
+	Node* node20 = new Node("ä¸œé—¨");
 
-	// ³õÊ¼»¯±ß
-	Edge edge1(698, node1, node2); // ±£ÎÀ´¦µ½¾©¶«
-	Edge edge2(698, node2, node1); // ¾©¶«µ½±£ÎÀ´¦
-	Edge edge3(680, node1, node3); // ±£ÎÀ´¦µ½Î÷Ô°Ê®Éá
-	Edge edge4(680, node3, node1); // Î÷Ô°Ê®Éáµ½±£ÎÀ´¦
-	Edge edge5(50, node2, node4); // ¾©¶«µ½Î÷Ô°Ê®Éá
-	Edge edge6(50, node4, node2); // Î÷Ô°Ê®Éáµ½¾©¶« 
-	Edge edge7(100, node2, node4); // ¾©¶«µ½Î÷Ô°¶ş²Í
-	Edge edge8(100, node4, node2); // Î÷Ô°¶ş²Íµ½¾©¶«
-	Edge edge9(100, node3, node4); // Î÷Ô°Ê®Éáµ½Î÷Ô°¶ş²Í
-	Edge edge10(100, node4, node3); // Î÷Ô°¶ş²Íµ½Î÷Ô°Ê®Éá
-	Edge edge11(60, node4, node5); // Î÷Ô°¶ş²Íµ½Î÷Ô°ÁùÉá
-	Edge edge12(60, node5, node4); // Î÷Ô°ÁùÉáµ½Î÷Ô°¶ş²Í
-	Edge edge13(53, node5, node6); // Î÷Ô°ÁùÉáµ½Î÷Ô°Ò»Éá
-	Edge edge14(53, node6, node5); // Î÷Ô°Ò»Éáµ½Î÷Ô°ÁùÉá
-	Edge edge15(330, node1, node8); // ±£ÎÀ´¦µ½ÍøÇò³¡
-	Edge edge16(330, node8, node1); // ÍøÇò³¡µ½±£ÎÀ´¦
-	Edge edge17(530, node3, node8); // Î÷Ô°Ê®Éáµ½ÍøÇò³¡
-	Edge edge18(530, node8, node3); // ÍøÇò³¡µ½Î÷Ô°Ê®Éá
-	Edge edge19(155, node4, node7); // Î÷Ôª¶ş²Íµ½»ªÁª
-	Edge edge20(155, node7, node4); // »ªÁªµ½Î÷Ô°¶ş²Í
-	Edge edge21(230, node7, node5); // »ªÁªµ½Î÷Ô°ÁùÉá
-	Edge edge22(230, node5, node6); // Î÷Ô°ÁùÉáµ½»ªÁª
-	Edge edge23(170, node8, node9); // ÍøÇò³¡µ½Î÷Ô°Ò»²ÍÌü
-	Edge edge24(170, node9, node8); // Î÷Ô°Ò»²ÍÌüµ½ÍøÇò³¡
-	Edge edge25(130, node7, node9); // »ªÁªµ½Î÷Ô°Ò»²Í
-	Edge edge26(130, node9, node7); // Î÷Ô°Ò»²Íµ½»ªÁª
-	Edge edge27(510, node6, node10); // Î÷Ô°Ò»Éáµ½¶şºÅ³¡
-	Edge edge28(510, node10, node6); // ¶şºÅ³¡µ½Î÷Ô°Ò»Éá
-	Edge edge29(640, node6, node11); // Î÷Ô°Ò»Éáµ½²ËÄñæäÕ¾
-	Edge edge30(640, node11, node6); // ²ËÄñæäÕ¾µ½Î÷Ô°Ò»Éá
-	Edge edge31(260, node9, node10); // Î÷Ô°Ò»²Íµ½¶şºÅ³¡
-	Edge edge32(260, node10, node9); // ¶şºÅ³¡µ½Î÷Ô°Ò»²Í
-	Edge edge33(160, node10, node11); // ¶şºÅ³¡µ½²ËÄñæäÕ¾ 
-	Edge edge34(160, node11, node10); // ²ËÄñæäÕ¾µ½¶şºÅ³¡
-	Edge edge35(780, node9, node13); // Î÷Ô°Ò»²Íµ½Í¼Êé¹İ
-	Edge edge36(780, node13, node9); // Í¼Êé¹İµ½Î÷Ô°Ò»²Í
-	Edge edge37(580, node9, node14); // Î÷Ô°Ò»²Íµ½Ò»½Ì
-	Edge edge38(580, node14, node9); // Ò»½Ìµ½Î÷Ô°Ò»²Í
-	Edge edge39(860, node11, node14); // ²ËÄñæäÕ¾µ½Ò»½Ì
-	Edge edge40(860, node14, node11); // Ò»½Ìµ½²ËÄñæäÕ¾
-	Edge edge41(490, node13, node14); // Í¼Êé¹İµ½Ò»½Ì 
-	Edge edge42(490, node14, node13); // Ò»½Ìµ½Í¼Êé¹İ
-	Edge edge43(1000, node9, node12); // Î÷Ô°Ò»²Íµ½¹¤ÑµÖĞĞÄ
-	Edge edge44(1000, node12, node9); // ¹¤ÑµÖĞĞòµ½Î÷ÔªÒ»²Í
-	Edge edge45(610, node12, node13); // ¹¤ÑµÖĞĞÄµ½Í¼Êé¹İ
-	Edge edge46(610, node13, node12); // Í¼Êé¹İµ½¹¤ÑµÖĞĞÄ
-	Edge edge47(350, node13, node16); // Í¼Êé¹İµ½¶ş»ùÂ¥B
-	Edge edge48(350, node16, node13); // ¶ş»ùÂ¥Bµ½Í¼Êé¹İ
-	Edge edge49(810, node12, node16); // ¹¤ÑµÖĞĞÄµ½¶ş»ùÂ¥B
-	Edge edge50(810, node16, node12); // ¶ş»ùÂ¥Bµ½¹¤ÑµÖĞĞÄ
-	Edge edge51(720, node12, node17); // ¹¤ÑµÖĞĞÄµ½¶«Ô°Ò»²Í
-	Edge edge52(720, node17, node12); // ¶«Ô°Ò»²Íµ½¹¤ÑµÖĞĞÄ
-	Edge edge53(360, node14, node15); // Ò»½Ìµ½×ÛºÏÂ¥
-	Edge edge54(360, node15, node14); // ×ÛºÏÂ¥µ½Ò»½Ì
-	Edge edge55(660, node16, node15); // ¶ş»ùÂ¥Bµ½×ÛºÏÂ¥
-	Edge edge56(660, node15, node16); // ×ÛºÏÂ¥µ½¶ş»ùÂ¥B
-	Edge edge57(460, node17, node16); // ¶«Ô°Ò»²Íµ½¶ş»ùÂ¥B
-	Edge edge58(460, node16, node17); // ¶ş»ùÂ¥Bµ½¶«Ô°Ò»²Í
-	Edge edge59(190, node16, node18); // ¶ş»ùÂ¥Bµ½ÎÄ¿ÆÂ¥
-	Edge edge60(190, node18, node16); // ÎÄ¿ÆÂ¥µ½¶ş»ùÂ¥B
-	Edge edge61(500, node15, node19); // ×ÛºÏÂ¥µ½Ò»ºÅ³¡
-	Edge edge62(500, node19, node15); // Ò»ºÅ³¡µ½×ÛºÏÂ¥
-	Edge edge63(400, node17, node18); // ¶«Ô°Ò»²Íµ½ÎÄ¿ÆÂ¥
-	Edge edge64(400, node18, node17); // ÎÄ¿ÆÂ¥µ½¶«Ô°Ò»²Í
-	Edge edge65(500, node19, node18); // Ò»ºÅ³¡µ½ÎÄ¿ÆÂ¥
-	Edge edge66(500, node18, node19); // ÎÄ¿ÆÂ¥µ½Ò»ºÅ³¡
-	Edge edge67(410, node17, node20); // ¶«Ô°Ò»²Íµ½¶«ÃÅ
-	Edge edge68(410, node20, node17); // ¶«ÃÅµ½¶«Ô°Ò»²Í
-	Edge edge69(360, node20, node18); // ¶«ÃÅµ½ÎÄ¿ÆÂ¥
-	Edge edge70(360, node18, node20); // ÎÄ¿ÆÂ¥µ½¶«ÃÅ
-	Edge edge71(720, node19, node20); // Ò»ºÅ³¡µ½¶«ÃÅ
-	Edge edge72(720, node20, node19); // ¶«ÃÅµ½Ò»ºÅ³¡
+	// åˆå§‹åŒ–è¾¹
+	Edge edge1(698, node1, node2); // ä¿å«å¤„åˆ°äº¬ä¸œ
+	Edge edge2(698, node2, node1); // äº¬ä¸œåˆ°ä¿å«å¤„
+	Edge edge3(680, node1, node3); // ä¿å«å¤„åˆ°è¥¿å›­åèˆ
+	Edge edge4(680, node3, node1); // è¥¿å›­åèˆåˆ°ä¿å«å¤„
+	Edge edge5(50, node2, node3); // äº¬ä¸œåˆ°è¥¿å›­åèˆ
+	Edge edge6(50, node3, node2); // è¥¿å›­åèˆåˆ°äº¬ä¸œ 
+	Edge edge7(100, node2, node4); // äº¬ä¸œåˆ°è¥¿å›­äºŒé¤
+	Edge edge8(100, node4, node2); // è¥¿å›­äºŒé¤åˆ°äº¬ä¸œ
+	Edge edge9(100, node3, node4); // è¥¿å›­åèˆåˆ°è¥¿å›­äºŒé¤
+	Edge edge10(100, node4, node3); // è¥¿å›­äºŒé¤åˆ°è¥¿å›­åèˆ
+	Edge edge11(60, node4, node5); // è¥¿å›­äºŒé¤åˆ°è¥¿å›­å…­èˆ
+	Edge edge12(60, node5, node4); // è¥¿å›­å…­èˆåˆ°è¥¿å›­äºŒé¤
+	Edge edge13(53, node5, node6); // è¥¿å›­å…­èˆåˆ°è¥¿å›­ä¸€èˆ
+	Edge edge14(53, node6, node5); // è¥¿å›­ä¸€èˆåˆ°è¥¿å›­å…­èˆ
+	Edge edge15(330, node1, node8); // ä¿å«å¤„åˆ°ç½‘çƒåœº
+	Edge edge16(330, node8, node1); // ç½‘çƒåœºåˆ°ä¿å«å¤„
+	Edge edge17(530, node3, node8); // è¥¿å›­åèˆåˆ°ç½‘çƒåœº
+	Edge edge18(530, node8, node3); // ç½‘çƒåœºåˆ°è¥¿å›­åèˆ
+	Edge edge19(155, node4, node7); // è¥¿å…ƒäºŒé¤åˆ°åè”
+	Edge edge20(155, node7, node4); // åè”åˆ°è¥¿å›­äºŒé¤
+	Edge edge21(230, node7, node5); // åè”åˆ°è¥¿å›­å…­èˆ
+	Edge edge22(230, node5, node7); // è¥¿å›­å…­èˆåˆ°åè”
+	Edge edge23(170, node8, node9); // ç½‘çƒåœºåˆ°è¥¿å›­ä¸€é¤å…
+	Edge edge24(170, node9, node8); // è¥¿å›­ä¸€é¤å…åˆ°ç½‘çƒåœº
+	Edge edge25(130, node7, node9); // åè”åˆ°è¥¿å›­ä¸€é¤
+	Edge edge26(130, node9, node7); // è¥¿å›­ä¸€é¤åˆ°åè”
+	Edge edge27(510, node6, node10); // è¥¿å›­ä¸€èˆåˆ°äºŒå·åœº
+	Edge edge28(510, node10, node6); // äºŒå·åœºåˆ°è¥¿å›­ä¸€èˆ
+	Edge edge29(640, node6, node11); // è¥¿å›­ä¸€èˆåˆ°èœé¸Ÿé©¿ç«™
+	Edge edge30(640, node11, node6); // èœé¸Ÿé©¿ç«™åˆ°è¥¿å›­ä¸€èˆ
+	Edge edge31(260, node9, node10); // è¥¿å›­ä¸€é¤åˆ°äºŒå·åœº
+	Edge edge32(260, node10, node9); // äºŒå·åœºåˆ°è¥¿å›­ä¸€é¤
+	Edge edge33(160, node10, node11); // äºŒå·åœºåˆ°èœé¸Ÿé©¿ç«™ 
+	Edge edge34(160, node11, node10); // èœé¸Ÿé©¿ç«™åˆ°äºŒå·åœº
+	Edge edge35(780, node9, node13); // è¥¿å›­ä¸€é¤åˆ°å›¾ä¹¦é¦†
+	Edge edge36(780, node13, node9); // å›¾ä¹¦é¦†åˆ°è¥¿å›­ä¸€é¤
+	Edge edge37(580, node9, node14); // è¥¿å›­ä¸€é¤åˆ°ä¸€æ•™
+	Edge edge38(580, node14, node9); // ä¸€æ•™åˆ°è¥¿å›­ä¸€é¤
+	Edge edge39(860, node11, node14); // èœé¸Ÿé©¿ç«™åˆ°ä¸€æ•™
+	Edge edge40(860, node14, node11); // ä¸€æ•™åˆ°èœé¸Ÿé©¿ç«™
+	Edge edge41(490, node13, node14); // å›¾ä¹¦é¦†åˆ°ä¸€æ•™ 
+	Edge edge42(490, node14, node13); // ä¸€æ•™åˆ°å›¾ä¹¦é¦†
+	Edge edge43(1000, node9, node12); // è¥¿å›­ä¸€é¤åˆ°å·¥è®­ä¸­å¿ƒ
+	Edge edge44(1000, node12, node9); // å·¥è®­ä¸­åºåˆ°è¥¿å…ƒä¸€é¤
+	Edge edge45(610, node12, node13); // å·¥è®­ä¸­å¿ƒåˆ°å›¾ä¹¦é¦†
+	Edge edge46(610, node13, node12); // å›¾ä¹¦é¦†åˆ°å·¥è®­ä¸­å¿ƒ
+	Edge edge47(350, node13, node16); // å›¾ä¹¦é¦†åˆ°äºŒåŸºæ¥¼B
+	Edge edge48(350, node16, node13); // äºŒåŸºæ¥¼Båˆ°å›¾ä¹¦é¦†
+	Edge edge49(810, node12, node16); // å·¥è®­ä¸­å¿ƒåˆ°äºŒåŸºæ¥¼B
+	Edge edge50(810, node16, node12); // äºŒåŸºæ¥¼Båˆ°å·¥è®­ä¸­å¿ƒ
+	Edge edge51(720, node12, node17); // å·¥è®­ä¸­å¿ƒåˆ°ä¸œå›­ä¸€é¤
+	Edge edge52(720, node17, node12); // ä¸œå›­ä¸€é¤åˆ°å·¥è®­ä¸­å¿ƒ
+	Edge edge53(360, node14, node15); // ä¸€æ•™åˆ°ç»¼åˆæ¥¼
+	Edge edge54(360, node15, node14); // ç»¼åˆæ¥¼åˆ°ä¸€æ•™
+	Edge edge55(660, node16, node15); // äºŒåŸºæ¥¼Båˆ°ç»¼åˆæ¥¼
+	Edge edge56(660, node15, node16); // ç»¼åˆæ¥¼åˆ°äºŒåŸºæ¥¼B
+	Edge edge57(460, node17, node16); // ä¸œå›­ä¸€é¤åˆ°äºŒåŸºæ¥¼B
+	Edge edge58(460, node16, node17); // äºŒåŸºæ¥¼Båˆ°ä¸œå›­ä¸€é¤
+	Edge edge59(190, node16, node18); // äºŒåŸºæ¥¼Båˆ°æ–‡ç§‘æ¥¼
+	Edge edge60(190, node18, node16); // æ–‡ç§‘æ¥¼åˆ°äºŒåŸºæ¥¼B
+	Edge edge61(500, node15, node19); // ç»¼åˆæ¥¼åˆ°ä¸€å·åœº
+	Edge edge62(500, node19, node15); // ä¸€å·åœºåˆ°ç»¼åˆæ¥¼
+	Edge edge63(400, node17, node18); // ä¸œå›­ä¸€é¤åˆ°æ–‡ç§‘æ¥¼
+	Edge edge64(400, node18, node17); // æ–‡ç§‘æ¥¼åˆ°ä¸œå›­ä¸€é¤
+	Edge edge65(500, node19, node18); // ä¸€å·åœºåˆ°æ–‡ç§‘æ¥¼
+	Edge edge66(500, node18, node19); // æ–‡ç§‘æ¥¼åˆ°ä¸€å·åœº
+	Edge edge67(410, node17, node20); // ä¸œå›­ä¸€é¤åˆ°ä¸œé—¨
+	Edge edge68(410, node20, node17); // ä¸œé—¨åˆ°ä¸œå›­ä¸€é¤
+	Edge edge69(360, node20, node18); // ä¸œé—¨åˆ°æ–‡ç§‘æ¥¼
+	Edge edge70(360, node18, node20); // æ–‡ç§‘æ¥¼åˆ°ä¸œé—¨
+	Edge edge71(720, node19, node20); // ä¸€å·åœºåˆ°ä¸œé—¨
+	Edge edge72(720, node20, node19); // ä¸œé—¨åˆ°ä¸€å·åœº
 
-	// ÍêÉÆµã¶ÔÓ¦µÄ±ß¼¯
+	// å®Œå–„ç‚¹å¯¹åº”çš„è¾¹é›†
+	//node1
 	(*node1).edges.push_back(edge1);
 	(*node1).edges.push_back(edge2);
 	(*node1).edges.push_back(edge3);
 	(*node1).edges.push_back(edge4);
 	(*node1).edges.push_back(edge15);
 	(*node1).edges.push_back(edge16);
+	//node2
+	(*node2).edges.push_back(edge1);
+	(*node2).edges.push_back(edge2);
+	(*node2).edges.push_back(edge5);
+	(*node2).edges.push_back(edge6);
+	(*node2).edges.push_back(edge7);
+	(*node2).edges.push_back(edge8);
+	//node3
+	(*node3).edges.push_back(edge3);
+	(*node3).edges.push_back(edge4);
+	(*node3).edges.push_back(edge5);
+	(*node3).edges.push_back(edge6);
+	(*node3).edges.push_back(edge9);
+	(*node3).edges.push_back(edge10);
+	(*node3).edges.push_back(edge17);
+	(*node3).edges.push_back(edge18);
+	//node4
+	(*node4).edges.push_back(edge7);
+	(*node4).edges.push_back(edge8);
+	(*node4).edges.push_back(edge9);
+	(*node4).edges.push_back(edge10);
+	(*node4).edges.push_back(edge11);
+	(*node4).edges.push_back(edge12);
+	(*node4).edges.push_back(edge19);
+	(*node4).edges.push_back(edge20);
+	//node5
+	(*node5).edges.push_back(edge11);
+	(*node5).edges.push_back(edge12);
+	(*node5).edges.push_back(edge13);
+	(*node5).edges.push_back(edge14);
+	(*node5).edges.push_back(edge21);
+	(*node5).edges.push_back(edge22);
+	//node6
+	(*node6).edges.push_back(edge13);
+	(*node6).edges.push_back(edge14);
+	(*node6).edges.push_back(edge27);
+	(*node6).edges.push_back(edge28);
+	(*node6).edges.push_back(edge29);
+	(*node6).edges.push_back(edge30);
+	//node7
+	(*node7).edges.push_back(edge19);
+	(*node7).edges.push_back(edge20);
+	(*node7).edges.push_back(edge21);
+	(*node7).edges.push_back(edge22);
+	(*node7).edges.push_back(edge25);
+	(*node7).edges.push_back(edge26);
+	//node8
+	(*node8).edges.push_back(edge15);
+	(*node8).edges.push_back(edge16);
+	(*node8).edges.push_back(edge17);
+	(*node8).edges.push_back(edge18);
+	(*node8).edges.push_back(edge23);
+	(*node8).edges.push_back(edge24);
+	//node9
+	(*node9).edges.push_back(edge23);
+	(*node9).edges.push_back(edge24);
+	(*node9).edges.push_back(edge25);
+	(*node9).edges.push_back(edge26);
+	(*node9).edges.push_back(edge31);
+	(*node9).edges.push_back(edge32);
+	(*node9).edges.push_back(edge35);
+	(*node9).edges.push_back(edge36);
+	(*node9).edges.push_back(edge37);
+	(*node9).edges.push_back(edge38);
+	(*node9).edges.push_back(edge43);
+	(*node9).edges.push_back(edge44);
+	//node10
+	(*node10).edges.push_back(edge27);
+	(*node10).edges.push_back(edge28);
+	(*node10).edges.push_back(edge31);
+	(*node10).edges.push_back(edge32);
+	(*node10).edges.push_back(edge33);
+	(*node10).edges.push_back(edge34);
+	//node11
+	(*node11).edges.push_back(edge29);
+	(*node11).edges.push_back(edge30);
+	(*node11).edges.push_back(edge33);
+	(*node11).edges.push_back(edge34);
+	(*node11).edges.push_back(edge39);
+	(*node11).edges.push_back(edge40);
+	//node12
+	(*node12).edges.push_back(edge43);
+	(*node12).edges.push_back(edge44);
+	(*node12).edges.push_back(edge45);
+	(*node12).edges.push_back(edge46);
+	(*node12).edges.push_back(edge49);
+	(*node12).edges.push_back(edge50);
+	(*node12).edges.push_back(edge51);
+	(*node12).edges.push_back(edge52);
+	//node13
+	(*node13).edges.push_back(edge35);
+	(*node13).edges.push_back(edge36);
+	(*node13).edges.push_back(edge41);
+	(*node13).edges.push_back(edge42);
+	(*node13).edges.push_back(edge45);
+	(*node13).edges.push_back(edge46);
+	(*node13).edges.push_back(edge47);
+	(*node13).edges.push_back(edge48);
+	//node14
+	(*node14).edges.push_back(edge37);
+	(*node14).edges.push_back(edge38);
+	(*node14).edges.push_back(edge39);
+	(*node14).edges.push_back(edge40);
+	(*node14).edges.push_back(edge41);
+	(*node14).edges.push_back(edge42);
+	(*node14).edges.push_back(edge53);
+	(*node14).edges.push_back(edge54);
+	//node15
+	(*node15).edges.push_back(edge53);
+	(*node15).edges.push_back(edge54);
+	(*node15).edges.push_back(edge55);
+	(*node15).edges.push_back(edge56);
+	(*node15).edges.push_back(edge61);
+	(*node15).edges.push_back(edge62);
+	//node16
+	(*node16).edges.push_back(edge47);
+	(*node16).edges.push_back(edge48);
+	(*node16).edges.push_back(edge49);
+	(*node16).edges.push_back(edge50);
+	(*node16).edges.push_back(edge55);
+	(*node16).edges.push_back(edge56);
+	(*node16).edges.push_back(edge57);
+	(*node16).edges.push_back(edge58);
+	(*node16).edges.push_back(edge59);
+	(*node16).edges.push_back(edge60);
+	//node17
+	(*node17).edges.push_back(edge51);
+	(*node17).edges.push_back(edge52);
+	(*node17).edges.push_back(edge57);
+	(*node17).edges.push_back(edge58);
+	(*node17).edges.push_back(edge63);
+	(*node17).edges.push_back(edge64);
+	(*node17).edges.push_back(edge67);
+	(*node17).edges.push_back(edge68);
+	//node18
+	(*node18).edges.push_back(edge59);
+	(*node18).edges.push_back(edge60);
+	(*node18).edges.push_back(edge63);
+	(*node18).edges.push_back(edge64);
+	(*node18).edges.push_back(edge65);
+	(*node18).edges.push_back(edge66);
+	(*node18).edges.push_back(edge69);
+	(*node18).edges.push_back(edge70);
+	//node19
+	(*node19).edges.push_back(edge61);
+	(*node19).edges.push_back(edge62);
+	(*node19).edges.push_back(edge65);
+	(*node19).edges.push_back(edge66);
+	(*node19).edges.push_back(edge71);
+	(*node19).edges.push_back(edge72);
+	//node20
+	(*node20).edges.push_back(edge67);
+	(*node20).edges.push_back(edge68);
+	(*node20).edges.push_back(edge69);
+	(*node20).edges.push_back(edge70);
+	(*node20).edges.push_back(edge71);
+	(*node20).edges.push_back(edge72);
+	schoolMap.nodes.insert(make_pair(1, *node1));
+	schoolMap.nodes.insert(make_pair(2, *node2));
+	schoolMap.nodes.insert(make_pair(3, *node3));
+	schoolMap.nodes.insert(make_pair(4, *node4));
+	schoolMap.nodes.insert(make_pair(5, *node5));
+	schoolMap.nodes.insert(make_pair(6, *node6));
+	schoolMap.nodes.insert(make_pair(7, *node7));
+	schoolMap.nodes.insert(make_pair(8, *node8));
+	schoolMap.nodes.insert(make_pair(9, *node9));
+	schoolMap.nodes.insert(make_pair(10, *node10));
+	schoolMap.nodes.insert(make_pair(11, *node11));
+	schoolMap.nodes.insert(make_pair(12, *node12));
+	schoolMap.nodes.insert(make_pair(13, *node13));
+	schoolMap.nodes.insert(make_pair(14, *node14));
+	schoolMap.nodes.insert(make_pair(15, *node15));
+	schoolMap.nodes.insert(make_pair(16, *node16));
+	schoolMap.nodes.insert(make_pair(17, *node17));
+	schoolMap.nodes.insert(make_pair(18, *node18));
+	schoolMap.nodes.insert(make_pair(19, *node19));
+	schoolMap.nodes.insert(make_pair(20, *node20));
+	schoolMap.edges.insert(edge1);
+	schoolMap.edges.insert(edge2);
+	schoolMap.edges.insert(edge3);
+	schoolMap.edges.insert(edge4);
+	schoolMap.edges.insert(edge5);
+	schoolMap.edges.insert(edge6);
+	schoolMap.edges.insert(edge7);
+	schoolMap.edges.insert(edge8);
+	schoolMap.edges.insert(edge9);
+	schoolMap.edges.insert(edge10);
+	schoolMap.edges.insert(edge11);
+	schoolMap.edges.insert(edge12);
+	schoolMap.edges.insert(edge13);
+	schoolMap.edges.insert(edge14);
+	schoolMap.edges.insert(edge15);
+	schoolMap.edges.insert(edge16);
+	schoolMap.edges.insert(edge17);
+	schoolMap.edges.insert(edge18);
+	schoolMap.edges.insert(edge19);
+	schoolMap.edges.insert(edge20);
+	schoolMap.edges.insert(edge21);
+	schoolMap.edges.insert(edge22);
+	schoolMap.edges.insert(edge23);
+	schoolMap.edges.insert(edge24);
+	schoolMap.edges.insert(edge25);
+	schoolMap.edges.insert(edge26);
+	schoolMap.edges.insert(edge27);
+	schoolMap.edges.insert(edge28);
+	schoolMap.edges.insert(edge29);
+	schoolMap.edges.insert(edge30);
+	schoolMap.edges.insert(edge31);
+	schoolMap.edges.insert(edge32);
+	schoolMap.edges.insert(edge33);
+	schoolMap.edges.insert(edge34);
+	schoolMap.edges.insert(edge35);
+	schoolMap.edges.insert(edge36);
+	schoolMap.edges.insert(edge37);
+	schoolMap.edges.insert(edge38);
+	schoolMap.edges.insert(edge39);
+	schoolMap.edges.insert(edge40);
+	schoolMap.edges.insert(edge41);
+	schoolMap.edges.insert(edge42);
+	schoolMap.edges.insert(edge43);
+	schoolMap.edges.insert(edge44);
+	schoolMap.edges.insert(edge45);
+	schoolMap.edges.insert(edge46);
+	schoolMap.edges.insert(edge47);
+	schoolMap.edges.insert(edge48);
+	schoolMap.edges.insert(edge49);
+	schoolMap.edges.insert(edge50);
+	schoolMap.edges.insert(edge51);
+	schoolMap.edges.insert(edge52);
+	schoolMap.edges.insert(edge53);
+	schoolMap.edges.insert(edge54);
+	schoolMap.edges.insert(edge55);
+	schoolMap.edges.insert(edge56);
+	schoolMap.edges.insert(edge57);
+	schoolMap.edges.insert(edge58);
+	schoolMap.edges.insert(edge59);
+	schoolMap.edges.insert(edge60);
+	schoolMap.edges.insert(edge61);
+	schoolMap.edges.insert(edge62);
+	schoolMap.edges.insert(edge63);
+	schoolMap.edges.insert(edge64);
+	schoolMap.edges.insert(edge65);
+	schoolMap.edges.insert(edge66);
+	schoolMap.edges.insert(edge67);
+	schoolMap.edges.insert(edge68);
+	schoolMap.edges.insert(edge69);
+	schoolMap.edges.insert(edge70);
+	schoolMap.edges.insert(edge71);
+	schoolMap.edges.insert(edge72);
+
 
 	return schoolMap;
 	
@@ -114,16 +365,16 @@ Graph DataLoader::loadData() {
 }
 
 Graph DataLoader::loadTestData(){
-	// Êı¾İ³õÊ¼»¯
+	// æ•°æ®åˆå§‹åŒ–
 	Graph graph;
-	// ³õÊ¼»¯µã¼¯
+	// åˆå§‹åŒ–ç‚¹é›†
 	Node* A = new Node("A");
 	Node* B = new Node("B");
 	Node* C = new Node("C");
 	Node* D = new Node("D");
 	Node* E = new Node("E");
 
-	// ³õÊ¼»¯±ß¼¯
+	// åˆå§‹åŒ–è¾¹é›†
 	Edge AB(1, A, B);
 	Edge BA(1, B, A);
 	Edge AE(4, A, E);
@@ -157,14 +408,14 @@ Graph DataLoader::loadTestData(){
 	(*E).edges.push_back(EB);
 	(*E).edges.push_back(EC);
 	(*E).edges.push_back(ED);
-	// Ìí¼Óµã¼¯
+	// æ·»åŠ ç‚¹é›†
 	graph.nodes.insert(make_pair(1, *A));
 	graph.nodes.insert(make_pair(2, *B));
 	graph.nodes.insert(make_pair(3, *C));
 	graph.nodes.insert(make_pair(4, *D));
 	graph.nodes.insert(make_pair(5, *E));
 
-	// Ìí¼Ó±ß¼¯
+	// æ·»åŠ è¾¹é›†
 	graph.edges.insert(AB);
 	graph.edges.insert(BA);
 	graph.edges.insert(AE);

@@ -142,7 +142,6 @@
     <ClInclude Include="DataLoader.h" />
     <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="Graph.h" />
-    <ClInclude Include="ShortestPathCalculatable.h" />
     <ClInclude Include="test.hpp" />
     <ClInclude Include="UI.hpp" />
   </ItemGroup>

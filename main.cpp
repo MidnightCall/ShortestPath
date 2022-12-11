@@ -1,11 +1,12 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
+#include "UI.hpp"
 #include "Dijkstra.h"
 #include "test.hpp"
 
 void test1() {
-	Test test;
-	test.testDijkstra2();
+	UI ui;
+	ui.run();
 }
 
 int main(void){
